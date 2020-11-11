@@ -88,10 +88,10 @@ public class MySqlDataStoreUtilities {
         try {
             getConnection();
             
-            String query = "select * from  professional where category=?";
+            String query = "select * from  professional where approved=true and city=? and category=?";
             PreparedStatement pst = conn.prepareStatement(query);
-            // pst.setString(1, city);
-            pst.setString(1, category);
+            pst.setString(1, city);
+            pst.setString(2, category);
             ResultSet rs = pst.executeQuery();
             
             while (rs.next()) {
