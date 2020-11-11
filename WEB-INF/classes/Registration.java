@@ -20,7 +20,14 @@ public class Registration extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
-        User user = inputFromJson(request);
+        // User user = inputFromJson(request);
+        String userId = request.getParameter("userid");
+        String firstname = request.getParameter("fname");
+        String lastname = request.getParameter("lname");
+        String password = request.getParameter("password");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("contact");
+        User user = new User(userId,firstname,lastname,password,email,phone);
 		Utilities utility = new Utilities(request, pw);
         HashMap<String, User> hm=new HashMap<String, User>();
         try

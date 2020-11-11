@@ -32,13 +32,17 @@ public class MySqlDataStoreUtilities {
         try {
             getConnection();
             Statement stmt = conn.createStatement();
-            String query = "select * from  User";
+            String query = "select * from  User;";
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
+                System.out.println(rs.getString("firstName"));
                 User user = new User(rs.getString("userId"),rs.getString("firstName"),rs.getString("middleName"),rs.getString("lastName"), rs.getString("password"),rs.getString("email"),rs.getString("phone"), rs.getString("usertype"));
                 hm.put(rs.getString("userId"), user);
             }
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
         return hm;
     }
 
