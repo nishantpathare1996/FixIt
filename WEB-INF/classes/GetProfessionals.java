@@ -29,8 +29,6 @@ public class GetProfessionals extends HttpServlet {
         ArrayList<Professional> professionals = new ArrayList<Professional>();
         professionals = MySqlDataStoreUtilities.getProfessionals(cityCode,category);
         String professionalJson = new Gson().toJson(professionals);
-
-        response.setContentType("application/JSON");
         System.out.println(professionalJson);
         response.getWriter().write(professionalJson);
 	}

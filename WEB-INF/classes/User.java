@@ -1,7 +1,6 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.*;
-
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,7 +23,7 @@ public class User extends HttpServlet{
 	private String password;
     private String email;
     private String phone;
-	private String usertype;
+	private String usertype = "customer";
 	
 	public User(String userId,String fn,String mn,String ln, String password, String email,String phone, String usertype) {
         this.userId = userId;
@@ -35,6 +34,15 @@ public class User extends HttpServlet{
         this.email = email;
         this.phone = phone;
 		this.usertype = usertype;
+	}
+
+	public User(String userId,String fn,String ln, String password, String email,String phone) {
+        this.userId = userId;
+		this.firstName = fn;
+        this.lastName = ln;
+		this.password = password;
+        this.email = email;
+        this.phone = phone;
 	}
 
 	public String getUserId() {

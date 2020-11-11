@@ -20,7 +20,6 @@ public class Login extends HttpServlet {
 		/* User Information(username,password) is obtained from HttpServletRequest,
 		Based on the Type of user(customer,retailer,manager) respective hashmap is called and the username and 
 		password are validated and added to session variable and display Login Function is called */
-
 		String userId = request.getParameter("userId");
 		String password = request.getParameter("password");
 		// String usertype = request.getParameter("usertype");
@@ -32,9 +31,13 @@ public class Login extends HttpServlet {
 		catch(Exception e)
 		{			
 		}
-		User user = null;
-		if(hm.containsKey(userId))
+		// System.out.println(hm.keySet());
+		User user = hm.get(userId);
+		// System.out.println(hm.containsKey(userId));
+		System.out.println(user!=null);
+		if(user!=null)
 		{
+			System.out.println("User "+user.getFirstName()+" found.");
             user = hm.get(userId);
 		    String user_password = user.getPassword();
 		    if (password.equals(user_password))
@@ -46,7 +49,6 @@ public class Login extends HttpServlet {
                 return;
 			}
 		}
-		// displayLogin(request, response, pw, true);
+		pw.print("<h4 style='color:red'>Please check your username and password.</h4>");
 	}
-
 }
