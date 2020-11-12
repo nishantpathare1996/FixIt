@@ -12,7 +12,7 @@ public class MySqlDataStoreUtilities {
     public static String getConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/homehubsql", "root", "3306");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/homehubsql", "root", "root");
             System.out.println("Trying SQL connection.");
             message = "Successfull";
             return message;
@@ -92,7 +92,9 @@ public class MySqlDataStoreUtilities {
         try {
             getConnection();
             
-            String query = "select * from  professional where approved=true and city=? and category=?";
+          String query = "select * from  professional where city=? and category=?";
+          // String query = "select * from  professional";
+
             PreparedStatement pst = conn.prepareStatement(query);
             pst.setString(1, city);
             pst.setString(2, category);
