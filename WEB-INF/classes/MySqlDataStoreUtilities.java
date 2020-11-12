@@ -42,11 +42,10 @@ public class MySqlDataStoreUtilities {
         } catch (Exception e) {
             System.out.println(e);
         }
-        
         return hm;
     }
 
-    public static void insertUser(User user) {
+    public static void insertUser(User user) throws SQLException {
         try {
             getConnection();
             String query = "INSERT INTO User(userId,firstname,middlename,lastname,password,email,phone,usertype)" +
@@ -62,8 +61,9 @@ public class MySqlDataStoreUtilities {
             pst.setString(7, user.getPhone());
             pst.setString(8, user.getUsertype());
             pst.execute();
-        } catch (Exception e) {
-            System.out.println(e);
+        } 
+        catch (Exception e) {
+            throw e;
         }
     }
 
@@ -87,7 +87,7 @@ public class MySqlDataStoreUtilities {
         return cities;
     }
 
-    public static ArrayList<Professional> getProfessionals(String city, String category) {
+    public static ArrayList<Professional> getProfessionals(String city, String category) throws Exception {
         ArrayList<Professional> professionals = new ArrayList<Professional>();
         try {
             getConnection();
@@ -104,6 +104,7 @@ public class MySqlDataStoreUtilities {
             }
 
         } catch (Exception e) {
+            
             System.out.println(e);
         }
 

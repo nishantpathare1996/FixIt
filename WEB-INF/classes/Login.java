@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.ServletOutputStream;
+import com.google.gson.Gson;
 
 @WebServlet("/Login")
 
@@ -16,6 +18,8 @@ public class Login extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
+		String status = "fail";
+		// ServletOutputStream sos = response.getOutputStream();
 
 		/* User Information(username,password) is obtained from HttpServletRequest,
 		Based on the Type of user(customer,retailer,manager) respective hashmap is called and the username and 
@@ -34,7 +38,7 @@ public class Login extends HttpServlet {
 		// System.out.println(hm.keySet());
 		User user = hm.get(userId);
 		// System.out.println(hm.containsKey(userId));
-		System.out.println(user!=null);
+		// System.out.println(user!=null);
 		if(user!=null)
 		{
 			System.out.println("User "+user.getFirstName()+" found.");
@@ -45,10 +49,19 @@ public class Login extends HttpServlet {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("userId", user.getUserId());
                 session.setAttribute("usertype", user.getUsertype());
-                response.sendRedirect("Home");
-                return;
+				status = "success";
+				// pw.write("Success");
+                // response.sendRedirect("Home");
+                // return;
 			}
 		}
-		pw.print("<h4 style='color:red'>Please check your username and password.</h4>");
+		if(!status.equals("success")){
+			user = null;
+		}
+		LoginResponse loginResponse = new LoginResponse(status,user);
+		String loginResponseJson = new Gson().toJson(loginResponse);
+        System.out.println(loginResponseJson);
+        response.getWriter().write(loginResponseJson);
+		// pw.print("<h4 style='color:red'>Please check your username and password.</h4>");
 	}
 }
