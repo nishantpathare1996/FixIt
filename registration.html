@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+<html>
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -11,7 +7,7 @@
   <title>Inner Page - Gp Bootstrap Template</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -30,8 +26,6 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-  <link href="assets/css/mystyle.css" rel="stylesheet">
-
 
   <!-- =======================================================
   * Template Name: Gp - v2.1.0
@@ -40,47 +34,8 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
- <script>
-  const queryString = window.location.search;
-  console.log(queryString);
-  const urlParams = new URLSearchParams(queryString);
-  const city = urlParams.get('city');
-  const category = urlParams.get('category');
-
-  //console.log(product);
-  var myArray = []
-  $.ajax({
-    method:'GET',
-    url:`http://localhost/FixIt/GetProfessionals?city=${city}&category=${category}&subCategory=Repairs`,
-    success:function(response){
-      myArray = response
-      buildTable(myArray)
-      console.log(myArray)
-    }
-  })
-
-  function buildTable(data){
-    var table = document.getElementById('myTable')
-
-    for (var i = 0; i < data.length; i++){
-      var row = `<tr>
-              <td>${data[i].firstName}</td>
-              <td>${data[i].lastName}</td>
-              <td>${data[i].city}</td>
-              <td>3/5</td>
-              <td>${data[i].category}</td>
-              <td>${data[i].email}</td>
-              <td><a href="#">View Reviews</a></td>
-            </tr>`
-      table.innerHTML += row
-    }
-  }
-
-</script>
 <body>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top header-inner-pages">
+<header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center justify-content-between">
 
       <h1 class="logo"><a href="index.html">Gp<span>.</span></a></h1>
@@ -94,7 +49,23 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#team">Team</a></li>
-          
+          <li class="drop-down"><a href="">Drop Down</a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="drop-down"><a href="#">Deep Drop Down</a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li>
           <li><a href="#contact">Contact</a></li>
 
         </ul>
@@ -105,61 +76,51 @@
     </div>
   </header><!-- End Header -->
 
-  <main id="main">
 
-    <!-- ======= Breadcrumbs ======= -->
-    <section class="breadcrumbs">
-      <div class="container">
+    
 
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>Select from service provider</h2>
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>Service Providers</li>
-          </ol>
-        </div>
+    <div class="row">
+      <div class="col-8" >
+      <img src="assets/img/loginimg.png" class="img-fluid"  style="margin-top: 70px" />
+    </div>
+      <div class="col-3" style="margin-top: 100px;margin-left: 50px">
+        <div class="container border p-5">
+          <h2>Registration Form</h2>
 
+          <form method="post" action="Registration" >
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" value=""><br>
+
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" value=""><br>
+
+            <label for="userid">username</label><br>
+            <input type="text" id="username" name="userid" value=""><br>
+
+            <label for="email">email</label><br>
+            <input type="email" id="email" name="email" value=""><br>
+
+           <label for="contact">Contact No.</label><br>
+            <input type="text" id="contact" name="contact" value=""><br>
+
+            <label for="password">password</label><br>
+            <input type="password" id="password" name="password" value=""><br><br>
+
+            <label for="password">Confirm password</label><br>
+            <input type="password" id="cpassword" name="confirm" value=""><br><br>
+
+            <input type="submit" value="Submit">
+          </form> 
+        <a href="login.html">Click here to login</a>
       </div>
-    </section><!-- End Breadcrumbs -->
-    <section class="inner-page">
-      <div class="container">
-        
-    <!-- ======= Team Section ======= -->
-    <section id="team" class="team">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <p>Electricians</p> 
-
-          <h2>Repairs and Service</h2>
-        </div>
-         <table class="table table-striped">
-        <tr  style="background-color: #9b870c">
-        <th style="color:#fff">firstName</th>
-        <th style="color:#fff">lastName</th>
-        <th style="color:#fff">City</th>
-        <th style="color:#fff">Rating</th>
-        <th style="color:#fff">catgory</th>
-        <th style="color:#fff">email</th>
-        <th style="color:#fff">Reviews</th>
-        </tr>
-        <tbody id="myTable">
-        </tbody>
-        </table>
-        
-    </section><!-- End Team Section -->
-
       </div>
-    </section>
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
+    </div>
+ 
   <footer id="footer">
-    s
+   
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+   <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
@@ -177,6 +138,6 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-</body>
 
+</body>
 </html>
