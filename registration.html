@@ -93,17 +93,35 @@
     </section><!-- End Breadcrumbs -->
 
     <section class="inner-page">
-      <div class="container">
-        <h2>Login form</h2>
-        <form method="post" action="Login">
-            <label for="userId">username:</label><br>
-            <input type="text" id="userId" name="userId" value=""><br>
-            <label for="password">Password</label><br>
+      <div class="container">     
+          <h2>Registration Form</h2>
+
+          <form method="post" action="Registration" >
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" value=""><br>
+
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" value=""><br>
+
+            <label for="userid">username</label><br>
+            <input type="text" id="username" name="userid" value=""><br>
+
+            <label for="email">email</label><br>
+            <input type="email" id="email" name="email" value=""><br>
+
+           <label for="contact">Contact No.</label><br>
+            <input type="text" id="contact" name="contact" value=""><br>
+
+            <label for="password">password</label><br>
             <input type="password" id="password" name="password" value=""><br><br>
+
+            <label for="password">Confirm password</label><br>
+            <input type="password" id="cpassword" name="confirm" value=""><br><br>
+
             <input type="submit" value="Submit">
           </form> 
-
-          <a href="registration.html"> New User? Register here</a>
+        <a href="login.html">Click here to login</a>
+     
       </div>
     </section>
 
