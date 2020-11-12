@@ -27,8 +27,14 @@ public class GetProfessionals extends HttpServlet {
         session.setAttribute("city", cityCode);
         
         ArrayList<Professional> professionals = new ArrayList<Professional>();
-        professionals = MySqlDataStoreUtilities.getProfessionals(cityCode,category);
+        try{
+            professionals = MySqlDataStoreUtilities.getProfessionals(cityCode,category);
+        }
+        catch(Exception e){
+            // response.setParameter("error",e);
+        }
         String professionalJson = new Gson().toJson(professionals);
+
         System.out.println(professionalJson);
         response.getWriter().write(professionalJson);
 

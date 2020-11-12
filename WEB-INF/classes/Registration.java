@@ -20,6 +20,7 @@ public class Registration extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
+        String status = "fail";
         // User user = inputFromJson(request);
         String userId = request.getParameter("userid");
         String firstname = request.getParameter("fname");
@@ -39,10 +40,22 @@ public class Registration extends HttpServlet {
             System.out.println(e);
         }
         hm.put(user.getUserId(), user);
-        MySqlDataStoreUtilities.insertUser(user);
-        HttpSession session = request.getSession(true);				
-        session.setAttribute("login_msg", "Congratulations "+user.getFirstName()+" you are registered! Login to continue.");
-        response.getWriter().write("Success Data");
+        try{
+            MySqlDataStoreUtilities.insertUser(user);
+            HttpSession session = request.getSession(true);	
+            status = "success";
+            // session.setAttribute("login_msg", "Congratulations "+user.getFirstName()+" you are registered! Login to continue.");
+            // response.getWriter().write(session.getAttribute("login_msg").toString());
+        }
+        catch (Exception e){
+            // response.getWriter().write("Registration failed! "+e);
+            status = "fail";
+            
+            // request.setAttribute("errorMessage", "Registration failed!");
+            // request.getRequestDispatcher("/login.html").forward(request, response);
+        }        
+        String responseJson = new Gson().toJson(status);
+        response.getWriter().write(responseJson);
 	}
     public static User inputFromJson(HttpServletRequest request) throws IOException {
         User user = null;
