@@ -15,7 +15,7 @@ public class GetProfessionals extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 		HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("application/json");
+	response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 		// PrintWriter pw = response.getWriter();
 
@@ -31,5 +31,6 @@ public class GetProfessionals extends HttpServlet {
         String professionalJson = new Gson().toJson(professionals);
         System.out.println(professionalJson);
         response.getWriter().write(professionalJson);
+
 	}
 }

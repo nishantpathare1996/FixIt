@@ -19,7 +19,7 @@ public class Home extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
 		Utilities utility = new Utilities(request,pw);
-		utility.printHtml("demo.html");
+		utility.printHtml("index.html");
 		// utility.printHtml("LeftNavigationBar.html");
 		// utility.printHtml("Content.html");
 		// utility.printHtml("Footer.html");

@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+    th{ 
+        color:#fff;
+            }
+</style>
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -8,7 +15,7 @@
   <title>Inner Page - Gp Bootstrap Template</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -99,6 +106,57 @@
       </div>
     </section><!-- End Breadcrumbs -->
 
+   
+
+  <script>
+  const queryString = window.location.search;
+  console.log(queryString);
+  const urlParams = new URLSearchParams(queryString);
+  const city = urlParams.get('city');
+  const category = urlParams.get('category');
+
+  //console.log(product);
+  var myArray = []
+  $.ajax({
+    method:'GET',
+    url:`http://localhost/FixIt/GetProfessionals?city=${city}&category=${category}&subCategory=Repairs`,
+    success:function(response){
+      myArray = response
+      buildTable(myArray)
+      console.log(myArray)
+    }
+  })
+
+  function buildTable(data){
+    var table = document.getElementById('myTable')
+
+    for (var i = 0; i < data.length; i++){
+      var row = `<tr>
+              <td>${data[i].firstName}</td>
+              <td>${data[i].lastName}</td>
+              <td>${data[i].city}</td>
+              <td>3/5</td>
+              <td>${data[i].category}</td>
+              <td>${data[i].email}</td>
+              <td><a href="#">View Reviews</a></td>
+            </tr>`
+      table.innerHTML += row
+    }
+  }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
     <section class="inner-page">
       <div class="container">
         
@@ -111,7 +169,20 @@
 
           <h2>Repairs and Service</h2>
         </div>
+         <table class="table table-striped">
+    <tr  class="bg-info">
+        <th>firstName</th>
+        <th>lastName</th>
+        <th>City</th>
+        <th>Rating</th>
+        <th>catgory</th>
+        <th>email</th>
+        <th>Reviews</th>
+        </tr>
 
+        <tbody id="myTable">
+        </tbody>
+        </table>
         <div class="row">
 
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">

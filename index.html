@@ -266,12 +266,31 @@ $('.dropdown-menu a').click(function(){
           </button>
         </div>
         <div class="modal-body">
-          <div class="list-group">
-            <a href="providers.html" class="list-group-item list-group-item-action">Repairs and fixes</a>
-            <a href="#" class="list-group-item list-group-item-action">Electricity Breakdown</a>
-            <a href="#" class="list-group-item list-group-item-action">Electrical Wiring</a>
-            <a href="#" class="list-group-item list-group-item-action">Installing Service</a>
-          </div>
+          
+          <form action="providers.html">
+            <div class="dropdown">
+                 <label for="city">Choose a city:</label>
+                  <select name="city" id="city">
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Bangalore">Bangalore</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Chicago">Chicago</option>
+                  </select>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="category" value="electrician">Repairs and fixes</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="category" value="Pest">Electricity Breakdown</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="category" value="Wiring">Electrical Wiring</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="category" value="installing">Installing Service</label>
+            </div>
+             <input type="submit" value="Submit">
+         </form>
         </div>
 
       </div>
