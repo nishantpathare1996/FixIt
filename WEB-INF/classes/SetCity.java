@@ -21,6 +21,7 @@ public class SetCity extends HttpServlet {
 
         HttpSession session = request.getSession(true);
         session.setAttribute("city", cityCode);
+		System.out.println("Set city "+session.getAttribute("city")+" in session.");
         response.sendRedirect("Home");
         return;
 	}

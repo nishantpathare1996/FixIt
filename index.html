@@ -59,9 +59,9 @@
                     </span>
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#" value="CHI">Chicago</a>
-                    <a class="dropdown-item" href="#" value="NYC">New York</a>
-                    <a class="dropdown-item" href="#" value="LA">Los Angeles</a>
+                    <a class="dropdown-item" href="SetCity?city=CHI" value="CHI">Chicago</a>
+                    <a class="dropdown-item" href="SetCity?city=NYC" value="NYC">New York</a>
+                    <a class="dropdown-item" href="SetCity?city=LA" value="LA">Los Angeles</a>
                   </div>
                 </div>
               </div>
@@ -215,7 +215,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Select a Subcategory for electrician</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">Select the type of service:</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -236,19 +236,6 @@
             <div class="radio list-group-item list-group-item-action">
               <label><input type="radio" name="category" value="installing">&nbsp;&nbsp;&nbsp;Installing Service</label>
             </div>
-
-            <div class="dropdownon">
-              <br/>
-                 <label for="city">Choose a city:&nbsp;&nbsp;</label>
-                  <select name="city" id="city">
-                    <option value="Mumbai">Mumbai</option>
-                    <option value="Bangalore">Bangalore</option>
-                    <option value="Delhi">Delhi</option>
-                    <option value="Chicago">Chicago</option>
-                  </select>
-                   <br/>
-            </div>
-
              <input class="mt-3" type="submit" value="Submit" style="background-color: #ffc451;">
              </div>
          </form>

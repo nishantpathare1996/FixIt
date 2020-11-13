@@ -31,15 +31,14 @@ public class Utilities extends HttpServlet{
 	PrintWriter pw;
 	String url;
 	HttpSession session; 
+
 	public Utilities(HttpServletRequest req, PrintWriter pw) {
 		this.req = req;
 		this.pw = pw;
 		this.url = this.getFullURL();
 		this.session = req.getSession(true);
 	}
-
-
-
+	
 	/*  Printhtml Function gets the html file name as function Argument, 
 		If the html file name is Header.html then It gets userId from session variables.
 		Account ,Cart Information ang Logout Options are Displayed*/
@@ -169,5 +168,18 @@ public class Utilities extends HttpServlet{
 		User user = hm.get(userId());
 		return user;
 	}
+
+	// public HashMap<String, City> getCities() throws Exception{
+	// 	HashMap<String, City> cities=new HashMap<String, City>();
+	// 	try
+	// 	{		
+	// 		cities=MySqlDataStoreUtilities.getCities();
+	// 	}
+	// 	catch(Exception e)
+	// 	{
+	// 		throw e;
+	// 	}	
+	// 	return cities;
+	// }
 
 }

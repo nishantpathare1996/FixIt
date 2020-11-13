@@ -20,6 +20,7 @@ public class Login extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
 		Utilities utility = new Utilities(request,pw);
+		utility.logout();
 		String status = "fail";
 		HttpSession session = request.getSession(true);
 		// ServletOutputStream sos = response.getOutputStream();

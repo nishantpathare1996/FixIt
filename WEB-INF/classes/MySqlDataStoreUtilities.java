@@ -84,7 +84,6 @@ public class MySqlDataStoreUtilities {
         } catch (Exception e) {
             System.out.println(e);
         }
-
         return cities;
     }
 
