@@ -12,7 +12,7 @@ public class MySqlDataStoreUtilities {
     public static String getConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/homehubsql", "root", "root");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/homehubsql", "root", "3306");
             System.out.println("Trying SQL connection.");
             message = "Successfull";
             return message;
@@ -63,6 +63,7 @@ public class MySqlDataStoreUtilities {
             pst.execute();
         } 
         catch (Exception e) {
+            System.out.println(e);
             throw e;
         }
     }

@@ -46,64 +46,42 @@ public class Utilities extends HttpServlet{
 
 	public void printHtml(String file) {
 		String result = HtmlToString(file);
-		//to print the right navigation in header of userId cart and logout etc
-		if (file == "Header.html") {
-				result=result+"<div id='menu' style='float: right;'><ul>";
+		if (file == "header.html"){
+			// result=result+"<div id='menu' style='float: right;'><ul>";
 			if (session.getAttribute("userId")!=null){
 				String usertype = session.getAttribute("usertype").toString();
-
 				System.out.println("UserType is : "+usertype+"\n");
 				String userId = session.getAttribute("userId").toString();
 				userId = Character.toUpperCase(userId.charAt(0)) + userId.substring(1);
-
-				// result = result + "<li><a href='ViewOrder'><span class='glyphicon'>ViewOrder</span></a></li>"
-				// 		+ "<li><a><span class='glyphicon'>Hello, "+userId+"</span></a></li>"
-				// 		+ "<li><a href='Account'><span class='glyphicon'>Account</span></a></li>"
-				// 		+ "<li><a href='Logout'><span class='glyphicon'>Logout</span></a></li>";
-
-				// if(usertype.equalsIgnoreCase("retailer")){
-				// 	result = result + "<li><a href='StoreManager'><span class='glyphicon'>Manager options</span></a></li>";
-				// }
-
-				// if(usertype.equalsIgnoreCase("manager")){
-				// 	result = result + "<li><a href='Salesman'><span class='glyphicon'>Salesman options</span></a></li>";
-				// }
-
-				// if(session.getAttribute("usertype").equals("Manager"))
-				// {
-				// 	result = result + "<li><a href='ProductModify?button=Addproduct'><span class='glyphicon'>Addproduct</span></a></li>"
-				// 		+ "<li><a href='ProductModify?button=Updateproduct'><span class='glyphicon'>Updateproduct</span></a></li>"
-				// 		+"<li><a href='ProductModify?button=Deleteproduct'><span class='glyphicon'>Deleteproduct</span></a></li>"
-				// 		+"<li><a href='InventoryReport'><span class='glyphicon'>Inventory Report</span></a></li>"
-				// 		+"<li><a href='SalesReport'><span class='glyphicon'>Sales Report</span></a></li>"
-				// 		// +"<li><a href='DataAnalytics'><span class='glyphicon'>DataAnalytics</span></a></li>"
-				// 		+ "<li><a><span class='glyphicon'>Hello, "+userId+"</span></a></li>"
-				// 		+ "<li><a href='Logout'><span class='glyphicon'>Logout</span></a></li>";
-				// }
-				
-				// else if(session.getAttribute("usertype").equals("retailer")){
-				// 	result = result + "<li><a href='Registration'><span class='glyphicon'>Create Customer</span></a></li>"
-				// 		+ "<li><a href='ViewOrdersSalesman'><span class='glyphicon'>ViewOrder</span></a></li>"
-				// 		+ "<li><a><span class='glyphicon'>Hello, "+userId+"</span></a></li>"
-				// 		+ "<li><a href='Logout'><span class='glyphicon'>Logout</span></a></li>";
-				// }
-				// else
-				// {
-				// result = result + "<li><a href='ViewOrder'><span class='glyphicon'>ViewOrder</span></a></li>"
-				// 		+ "<li><a><span class='glyphicon'>Hello, "+userId+"</span></a></li>"
-				// 		+ "<li><a href='Account'><span class='glyphicon'>Account</span></a></li>"
-				// 		+ "<li><a href='Logout'><span class='glyphicon'>Logout</span></a></li>";
-			    // }
-
+				String firstname = session.getAttribute("firstname").toString();
+				result = result +"<li><a href=''>Welcome "+firstname+"</a></li>";
+				result = result + "<li><a href='Logout'>Logout</a></li>";
 			}
-			// else
-			// 	result = result +"<li><a href='ViewOrder'><span class='glyphicon'>View Order</span></a></li>"+ "<li><a href='Login'><span class='glyphicon'>Login</span></a></li>";
-			// 	result = result +"<li><a href='Cart'><span class='glyphicon'>Cart("+CartCount()+")</span></a></li></ul></div></div><div id='page'>";
-			// 	pw.print(result);
-		} else
-				pw.print(result);
+			else{
+				result = result + "<li><a href='Login'>Login/Sign Up</a></li>";
+			}
+			result = result + "</u1></nav></div></header>";
+		}
+		if (file == "login.html"){
+			if (session.getAttribute("login_err")!=null){
+				result = result +"<h4 style='color:red'>"+session.getAttribute("login_err")+"</h4>";
+				session.removeAttribute("login_err");
+			}
+			if (session.getAttribute("registration_msg")!=null){
+				result = result +"<h4 style='color:green'>"+session.getAttribute("registration_msg")+"</h4>";
+				session.removeAttribute("registration_msg");
+			}
+			result = result + "</div></div></div>";
+		}
+		if (file == "registration.html"){
+			if (session.getAttribute("registration_msg")!=null){
+				result = result +"<h4 style='color:red'>"+session.getAttribute("registration_msg")+"</h4>";
+				session.removeAttribute("registration_msg");
+			}
+			result = result + "</div></div></div>";
+		}
+		pw.print(result);
 	}
-	
 
 	/*  getFullURL Function - Reconstructs the URL user request  */
 
@@ -151,6 +129,7 @@ public class Utilities extends HttpServlet{
 	public void logout(){
 		session.removeAttribute("userId");
 		session.removeAttribute("usertype");
+		session.removeAttribute("firstname");
 	}
 	
 	/*  logout Function checks whether the user is loggedIn or Not*/
