@@ -16,9 +16,12 @@ public class Login extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
+		Utilities utility = new Utilities(request,pw);
 		String status = "fail";
+		HttpSession session = request.getSession(true);
 		// ServletOutputStream sos = response.getOutputStream();
 
 		/* User Information(username,password) is obtained from HttpServletRequest,
@@ -46,22 +49,29 @@ public class Login extends HttpServlet {
 		    String user_password = user.getPassword();
 		    if (password.equals(user_password))
 			{
-                HttpSession session = request.getSession(true);
                 session.setAttribute("userId", user.getUserId());
+				session.setAttribute("firstname", user.getFirstName());
                 session.setAttribute("usertype", user.getUsertype());
 				status = "success";
-				// pw.write("Success");
-                // response.sendRedirect("Home");
-                // return;
 			}
 		}
-		if(!status.equals("success")){
-			user = null;
+		if(status.equals("success")){
+			response.sendRedirect("Home");
 		}
-		LoginResponse loginResponse = new LoginResponse(status,user);
-		String loginResponseJson = new Gson().toJson(loginResponse);
-        System.out.println(loginResponseJson);
-        response.getWriter().write(loginResponseJson);
-		// pw.print("<h4 style='color:red'>Please check your username and password.</h4>");
+		else{
+			session.setAttribute("login_err", "Please check userId and password.");
+			response.sendRedirect("Login");
+		}
 	}
+
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		// response.setContentType("text/html");
+		PrintWriter pw = response.getWriter();
+		// displayLogin(request, response, pw, false);
+		Utilities utility = new Utilities(request, pw);
+		utility.printHtml("header.html");
+		utility.printHtml("login.html");
+		utility.printHtml("footer.html");
+}
 }
