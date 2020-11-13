@@ -57,7 +57,12 @@ public class Login extends HttpServlet {
 			}
 		}
 		if(status.equals("success")){
-			response.sendRedirect("Home");
+			if(session.getAttribute("city")==null){
+				response.sendRedirect("PreHome");
+			}
+			else{
+				response.sendRedirect("Home");
+			}
 		}
 		else{
 			session.setAttribute("login_err", "Please check userId and password.");
