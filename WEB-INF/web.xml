@@ -6,7 +6,7 @@
   
   <!-- See the welcome-file Reference Material here: http://www.javatpoint.com/welcome-file-list -->
   <welcome-file-list>
-    <welcome-file>SelectCity</welcome-file>
+    <welcome-file>PreHome</welcome-file>
     <welcome-file>Home</welcome-file>
   </welcome-file-list>
   
@@ -15,6 +15,16 @@
     <servlet-class>Startup</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
+  
+   <servlet>
+    <servlet-name>PreHome</servlet-name>
+    <servlet-class>PreHome</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>PreHome</servlet-name>
+    <url-pattern>/PreHome</url-pattern>
+  </servlet-mapping>
 
   <servlet>
     <servlet-name>Home</servlet-name>

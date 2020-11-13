@@ -18,20 +18,18 @@ public class GetProfessionals extends HttpServlet {
 	response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 		// PrintWriter pw = response.getWriter();
+        HttpSession session = request.getSession(true);
 
-		String cityCode = request.getParameter("city");
+		String cityCode = session.getAttribute("city").toString();
+        System.out.println("Printing city in session:"+session.getAttribute("city"));
         String subCategory = request.getParameter("subCategory");
         String category = request.getParameter("category");
-
-        HttpSession session = request.getSession(true);
-        session.setAttribute("city", cityCode);
         
         ArrayList<Professional> professionals = new ArrayList<Professional>();
         try{
             professionals = MySqlDataStoreUtilities.getProfessionals(cityCode,category);
         }
         catch(Exception e){
-            // response.setParameter("error",e);
         }
         String professionalJson = new Gson().toJson(professionals);
 
