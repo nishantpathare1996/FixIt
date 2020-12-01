@@ -51,7 +51,7 @@
   var myArray = []
   $.ajax({
     method:'GET',
-    url:`http://localhost/FixIt/GetProfessionals?category=${category}&subCategory=Repairs`,
+    url:`http://localhost/Project/GetProfessionals?category=${category}&subCategory=Repairs`,
     success:function(response){
       myArray = response
       buildTable(myArray)
