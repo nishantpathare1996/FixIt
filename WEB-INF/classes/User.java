@@ -1,11 +1,3 @@
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.*;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-
 /* 
 	Users class contains class variables id,name,password,usertype.
 
@@ -15,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 */
 
-public class User extends HttpServlet{
+public class User {
 	private String userId;
 	private String firstName;
     private String middleName;
