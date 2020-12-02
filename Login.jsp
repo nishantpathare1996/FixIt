@@ -1,13 +1,15 @@
- <!DOCTYPE html>
-<html lang="en">
+<%@ include file = "header.html" %>
 
+
+<!DOCTYPE html>
+<html>
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-  <title>Header</title>
-  <meta content="" name="descriptison">
-  <meta content="" name="keywords">
+  <title>Reviews</title>
+  <meta content="text/html" name="descriptison">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -28,27 +30,31 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Gp - v2.1.0
-  * Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-  </head>
- <body>
-  <header id="header" class="fixed-top header-inner-pages">
-    <div class="container d-flex align-items-center justify-content-between">
+  <div class="row">
 
-      <h1 class="col-xl-6 col-lg-8"><a href="Home">FixIt<span>.</span></a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-      <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li><a href="Home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact us</a></li>
-        </ul>
-
+    <!-- ======= Breadcrumbs ======= -->
+    
+    <div class="col-8" >
+      <img src="assets/img/loginimg.png" class="img-fluid" style="margin-top: 60px" />
     </div>
-  </body>
+   
+      <div class="col-3" style="margin-top: 100px;margin-left: 50px">
+        <div class="container border p-5">
+        <h2>Login</h2>
+        <form method="Post" action="Login">
+            <label for="userId">username:</label><br>
+            <input type="text" id="userId" name="userId" value=""><br>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" value=""><br><br>
+            <input id="" type="submit" value="Submit">
+        </form> 
+
+          <a href="Registration"> New User? Register here</a>
+        </div>
+        </div>
+
+        </div>
+        </head>
+        <body><%@ include file = "footer.html" %></body>
+</html>
+

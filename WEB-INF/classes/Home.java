@@ -5,6 +5,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.RequestDispatcher;
 
 @WebServlet("/Home")
 
@@ -16,11 +17,17 @@ import javax.servlet.http.HttpServletResponse;
 
 public class Home extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-		PrintWriter pw = response.getWriter();
-		Utilities utility = new Utilities(request,pw);
-		utility.printHtml("header.html");
-		utility.printHtml("index.html");
-		utility.printHtml("footer.html");
+		// response.setContentType("text/html");
+		// PrintWriter pw = response.getWriter();
+		// Utilities utility = new Utilities(request,pw);
+		// utility.printHtml("header.html");
+		// utility.printHtml("index.html");
+		// utility.printHtml("footer.html");
+
+		// RequestDispatcher rd=request.getRequestDispatcher("Home.jsp");
+		// rd.forward(request, response);
+		response.sendRedirect("Home.jsp");
+
+
 	}
 }
