@@ -40,8 +40,11 @@
             <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
             <nav class="nav-menu d-none d-lg-block">
                <ul>
-                  <li><a href="Home">Home</a></li>
+
+
+                  <li><a href="Home.jsp">Home</a></li>
                   <li><a href="">About</a></li>
+
                   <li><a href="">Contact us</a></li>
                     <%
                      if (session.getAttribute("userId")!=null){
@@ -50,7 +53,7 @@
                   <li><a href='Logout'>Logout</a></li>
                     <%}
                      else{%>
-                  <li><a href='Login'>Login/Sign Up</a></li>
+                  <li><a href='Login.jsp'>Login/Sign Up</a></li>
                   <%}%>
                </ul>
             </nav>
