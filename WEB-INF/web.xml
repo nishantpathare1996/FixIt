@@ -15,15 +15,7 @@
     <load-on-startup>1</load-on-startup>
   </servlet>
   
-   <servlet>
-    <servlet-name>PreHome</servlet-name>
-    <servlet-class>PreHome</servlet-class>
-  </servlet>
-
-  <servlet-mapping>
-    <servlet-name>PreHome</servlet-name>
-    <url-pattern>/PreHome</url-pattern>
-  </servlet-mapping>
+  
 
   <servlet>
     <servlet-name>Home</servlet-name>

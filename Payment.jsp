@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -5,6 +7,8 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <head>
+  
+
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -40,80 +44,18 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
- <script>
-  const queryString = window.location.search;
-  console.log(queryString);
-  const urlParams = new URLSearchParams(queryString);
-  const city = urlParams.get('city');
-  const category = urlParams.get('category');
-
-  //console.log(product);
-  var myArray = []
-  $.ajax({
-    method:'GET',
-
-    url:`http://localhost/FixIt/GetProfessionals?category=${category}&subCategory=Repairs`,
-    success:function(response){
-      myArray = response
-      buildTable(myArray)
-      console.log(myArray)
-    }
-  })
-
-  function buildTable(data){
-    var table = document.getElementById('myTable')
-
-    for (var i = 0; i < data.length; i++){
-      var row = `<tr>
-              <td>${data[i].firstName}</td>
-              <td>${data[i].lastName}</td>
-              <td>${data[i].city}</td>
-              <td>3/5</td>
-              <td>${data[i].category}</td>
-              <td>${data[i].email}</td>
-              <td><a href="#">View Reviews</a></td>
-            </tr>`
-      table.innerHTML += row
-    }
-  }
-
-
-
-</script>
+ 
 
 <body>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top header-inner-pages">
-    <div class="container d-flex align-items-center justify-content-between">
-
-      <h1 class="logo"><a href="Home">FixIt<span>.</span></a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-      <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li><a href="Home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Contact us</a></li>
-          <li><a href="#portfolio">Login/Sign Up</a></li>
-
-        </ul>
-      </nav><!-- .nav-menu -->
-
-     
-
-    </div>
-  </header><!-- End Header -->
+  
+ <%@ include file="Header.jsp" %>
 
   <main id="main">
-
-    <!-- ======= Breadcrumbs ======= -->
     <section class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h4>Select from service provider</h4>
+          <h4>Payment Page</h4>
           <ol>
             <li><a href="index.html">Home</a></li>
             <li>Service Providers</li>
@@ -122,32 +64,29 @@
 
       </div>
     </section><!-- End Breadcrumbs -->
+    
     <section class="inner-page">
-      <div class="container">
-        
-    <!-- ======= Team Section ======= -->
-    <section id="team" class="team">
-      <div class="containe" data-aos="fade-up" style="margin-top: -70px">
-        <div class="section-title">
-          <p>Electricians</p> 
-
-          <h2>Repairs and Service</h2>
-        </div>
-
-
+      <div class="container">       
         <div>
+          <h3>Order Summary</h3>
+          <p><b>Name:</b></p>
+          <p><b>Price:</b></p>
+          <p><b>Time Slot:</b></p>
+          <p><b>Date: </b></p>
+          <p><b>Serive Provider:</b></p>
+          <p><b>City: </b></p>
+
+        </div>
+        <section id="team" class="team">
+          <div>
           <form>
+           <h3>Please fill the form</h3>
             <div class="form-row">
-              <div class="form-group col-md-4">
-                <label for="inputEmail4">First Name</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-              </div>
-              <div class="form-group col-md-4">
-                <label for="inputPassword4">Last Name</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-              </div>
+            <div class="form-group col-md-8">
+              <label for="inputAddress">Address Line 1</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
             </div>
-           
+           </div>
             <div class="form-row">
               <div class="form-group col-md-3">
                 <label for="inputCity">City</label>
@@ -168,40 +107,32 @@
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label class="control-label" for="date">Date</label>
-                 <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+                 <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="date"/>
               </div>
-              <div class="form-group col-md-4">
+               <div class="form-group col-md-4">
                 <label for="inputPassword4">Select Time Slot</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="2 am">
-              </div>
+                <select id="time" name="time" class="form-control">
+                  <option value="2">9:00 am-10:00 am</option>
+                  <option value="2">10:00 am-11:00 am</option>
+                  <option value="2">11:00 am-12:00 pm</option>
+                  <option value="2">12:00 pm-1:00 pm</option>
+                  <option value="2">1:00 pm-2:00 pm</option>
+                  <option value="2">2:00 pm-3:00 pm</option>
+                  <option value="2">3:00 pm-4:00 pm</option>
+                  <option value="2">4:00 pm-5:00 pm</option>
+                 
+                </select>
+               <!-- <input type="time" class="form-control" id="inputPassword4" placeholder="2 am"> -->
+              </div> 
             </div>
-            <p>please select date and time slot</p>
            <div>
-            <button type="submit" class="btn btn-secondary">Check available technicicans</button>
+            <button type="submit" class="btn btn-secondary">Make Payment</button>
           </div>
           </form>
         </div>
-
-        <br/><br/>
-        <h2>Our Electricians</h2>
-         <table class="table table-striped">
-        <tr  style="background-color: #9b870c">
-        <th style="color:#fff">firstName</th>
-        <th style="color:#fff">lastName</th>
-        <th style="color:#fff">City</th>
-        <th style="color:#fff">Rating</th>
-        <th style="color:#fff">catgory</th>
-        <th style="color:#fff">email</th>
-        <th style="color:#fff">Reviews</th>
-        </tr>
-        <tbody id="myTable">
-        </tbody>
-        </table>
-        
-    </section><!-- End Team Section -->
-
-      </div>
-    </section>
+          </section><!-- End Team Section -->
+        </div>
+      </section>
 
   </main><!-- End #main -->
 

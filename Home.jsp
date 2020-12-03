@@ -40,7 +40,7 @@
         <!-- ======= Hero Section ======= -->
         <section id="hero" class="d-flex align-items-center justify-content-center">
           <div class="container" data-aos="fade-up">
-      
+            
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
               <div class="col-xl-6 col-lg-8">
                 <h1>FixIt<span>.</span></h1>
@@ -217,7 +217,7 @@
               </div>
               <div class="modal-body">
                 
-                <form action="providers.html">
+                <form action="providers.jsp">
                   <div class="list-group">
                   <div class="radio list-group-item list-group-item-action">
                     <label><input type="radio" name="category" value="electrician">&nbsp;&nbsp;&nbsp;Repairs and fixes</label>
@@ -272,6 +272,8 @@
           
                 <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
                   <div class="col-xl-6 col-lg-8">
+                                <h1>holalalala</h1>
+
                     <h1>FixIt<span>.</span></h1>
                     <h2>Where do you need a service?</h2>>
                     <h2>

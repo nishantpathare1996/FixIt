@@ -18,6 +18,7 @@ import javax.servlet.http.HttpSession;
 
 public class Home extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		HttpSession session = request.getSession(true);
 		session.removeAttribute("city");
 		response.sendRedirect("Home.jsp");

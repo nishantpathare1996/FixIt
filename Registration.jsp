@@ -1,9 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   <title>Inner Page - Gp Bootstrap Template</title>
   <meta content="" name="descriptison">
@@ -27,37 +27,52 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-</head>
+  </head>
+ 
+
   <!-- =======================================================
   * Template Name: Gp - v2.1.0
   * Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
- <body>
-  <div class="row">
-
-    <!-- ======= Breadcrumbs ======= -->
-    
-    <div class="col-8" >
-      <img src="assets/img/loginimg.png" class="img-fluid" style="margin-top: 60px" />
+   <body>
+    <div><%@ include file = "Header.jsp" %></div>
+    <div class="row">
+      <div class="col-8" >
+      <img src="assets/img/loginimg.png" class="img-fluid"  style="margin-top: 70px" />
     </div>
-   
       <div class="col-3" style="margin-top: 100px;margin-left: 50px">
         <div class="container border p-5">
-        <h2>Login</h2>
-        <form method="Post" action="Login">
-            <label for="userId">username:</label><br>
-            <input type="text" id="userId" name="userId" value=""><br>
-            <label for="password">Password</label><br>
+          <h2>Register as a customer</h2>
+
+          <form method="post" action="Registration" >
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" value=""><br>
+
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" value=""><br>
+
+            <label for="userid">username</label><br>
+            <input type="text" id="username" name="userid" value=""><br>
+
+            <label for="email">email</label><br>
+            <input type="email" id="email" name="email" value=""><br>
+
+           <label for="contact">Contact No.</label><br>
+            <input type="text" id="contact" name="contact" value=""><br>
+
+            <label for="password">password</label><br>
             <input type="password" id="password" name="password" value=""><br><br>
-            <input id="" type="submit" value="Submit">
-        </form> 
 
-          <a href="Registration"> New User? Register here</a>
-        </div>
+            <label for="password">Confirm password</label><br>
+            <input type="password" id="cpassword" name="confirm" value=""><br><br>
+
+            <input type="submit" value="Submit">
+          </form> 
+        <a href="Login">Click here to logiasdn</a>
       </div>
+    </div>
   </div>
-
 </body>
 </html>

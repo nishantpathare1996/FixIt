@@ -9,7 +9,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Inner Page - Gp Bootstrap Template</title>
-  <meta content="" name="descriptison">eqweqwee
+  <meta content="" name="descriptison">
   <meta content="" name="keywords">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Favicons -->
@@ -40,46 +40,7 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
- <script>
-  const queryString = window.location.search;
-  console.log(queryString);
-  const urlParams = new URLSearchParams(queryString);
-  const city = urlParams.get('city');
-  const category = urlParams.get('category');
 
-  //console.log(product);
-  var myArray = []
-  $.ajax({
-    method:'GET',
-
-    url:`http://localhost/FixIt/GetProfessionals?category=${category}&subCategory=Repairs`,
-    success:function(response){
-      myArray = response
-      buildTable(myArray)
-      console.log(myArray)
-    }
-  })
-
-  function buildTable(data){
-    var table = document.getElementById('myTable')
-
-    for (var i = 0; i < data.length; i++){
-      var row = `<tr>
-              <td>${data[i].firstName}</td>
-              <td>${data[i].lastName}</td>
-              <td>${data[i].city}</td>
-              <td>3/5</td>
-              <td>${data[i].category}</td>
-              <td>${data[i].email}</td>
-              <td><a href="#">View Reviews</a></td>
-            </tr>`
-      table.innerHTML += row
-    }
-  }
-
-
-
-</script>
 
 <body>
 
@@ -147,7 +108,12 @@
                 <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
               </div>
             </div>
-           
+            <div class="form-row">
+            <div class="form-group col-md-8">
+              <label for="inputAddress">Address Line 1</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            </div>
+           </div>
             <div class="form-row">
               <div class="form-group col-md-3">
                 <label for="inputCity">City</label>
@@ -175,28 +141,14 @@
                 <input type="password" class="form-control" id="inputPassword4" placeholder="2 am">
               </div>
             </div>
-            <p>please select date and time slot</p>
            <div>
-            <button type="submit" class="btn btn-secondary">Check available technicicans</button>
+            <button type="submit" class="btn btn-secondary">Book the slot</button>
           </div>
           </form>
         </div>
 
-        <br/><br/>
-        <h2>Our Electricians</h2>
-         <table class="table table-striped">
-        <tr  style="background-color: #9b870c">
-        <th style="color:#fff">firstName</th>
-        <th style="color:#fff">lastName</th>
-        <th style="color:#fff">City</th>
-        <th style="color:#fff">Rating</th>
-        <th style="color:#fff">catgory</th>
-        <th style="color:#fff">email</th>
-        <th style="color:#fff">Reviews</th>
-        </tr>
-        <tbody id="myTable">
-        </tbody>
-        </table>
+    
+       
         
     </section><!-- End Team Section -->
 
