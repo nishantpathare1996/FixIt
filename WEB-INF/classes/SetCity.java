@@ -16,13 +16,11 @@ public class SetCity extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
-
 		String cityCode = request.getParameter("city");
-
         HttpSession session = request.getSession(true);
         session.setAttribute("city", cityCode);
 		System.out.println("Set city "+session.getAttribute("city")+" in session.");
-        response.sendRedirect("Home");
+        response.sendRedirect("Home.jsp");
         return;
 	}
 }

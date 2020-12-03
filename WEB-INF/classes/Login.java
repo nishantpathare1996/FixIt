@@ -16,7 +16,7 @@ public class Login extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		
+
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
 		Utilities utility = new Utilities(request,pw);
@@ -24,13 +24,11 @@ public class Login extends HttpServlet {
 		String status = "fail";
 		HttpSession session = request.getSession(true);
 		// ServletOutputStream sos = response.getOutputStream();
-
 		/* User Information(username,password) is obtained from HttpServletRequest,
 		Based on the Type of user(customer,retailer,manager) respective hashmap is called and the username and 
 		password are validated and added to session variable and display Login Function is called */
 		String userId = request.getParameter("userId");
 		String password = request.getParameter("password");
-		// String usertype = request.getParameter("usertype");
 		HashMap<String, User> hm=new HashMap<String, User>();
 		try
 		{		
@@ -57,22 +55,11 @@ public class Login extends HttpServlet {
 			}
 		}
 		if(status.equals("success")){
-			response.sendRedirect("Home");
+			response.sendRedirect("Home.jsp");
 		}
 		else{
 			session.setAttribute("login_err", "Please check userId and password.");
-			response.sendRedirect("Login");
+			response.sendRedirect("Login.jsp");
 		}
 	}
-
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		// response.setContentType("text/html");
-		PrintWriter pw = response.getWriter();
-		// displayLogin(request, response, pw, false);
-		Utilities utility = new Utilities(request, pw);
-		utility.printHtml("header.html");
-		utility.printHtml("login.html");
-		utility.printHtml("footer.html");
-}
 }
