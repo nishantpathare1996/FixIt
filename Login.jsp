@@ -1,15 +1,15 @@
-<%@ include file = "header.html" %>
-
 
 <!DOCTYPE html>
 <html>
 <head>
+
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-  <title>Reviews</title>
-  <meta content="text/html" name="descriptison">
+  <title>Inner Page - Gp Bootstrap Template</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -29,7 +29,9 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
+</head>
+<body>
+    <div><%@ include file = "Header.jsp" %></div>
   <div class="row">
 
     <!-- ======= Breadcrumbs ======= -->
@@ -54,7 +56,8 @@
         </div>
 
         </div>
-        </head>
-        <body><%@ include file = "footer.html" %></body>
+        
+       <%@ include file = "footer.html" %>
+     </body>
 </html>
 

@@ -41,7 +41,7 @@
             <nav class="nav-menu d-none d-lg-block">
                <ul>
                   <li><a href="Home">Home</a></li>
-                  <li><a href=""">About</a></li>
+                  <li><a href="">About</a></li>
                   <li><a href="">Contact us</a></li>
                     <%
                      if (session.getAttribute("userId")!=null){

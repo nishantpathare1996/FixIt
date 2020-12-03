@@ -26,8 +26,7 @@ public class Home extends HttpServlet {
 
 		// RequestDispatcher rd=request.getRequestDispatcher("Home.jsp");
 		// rd.forward(request, response);
+		System.out.println("Here I am!");
 		response.sendRedirect("Home.jsp");
-
-
 	}
 }
