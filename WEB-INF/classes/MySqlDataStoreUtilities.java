@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.io.*;
 
 public class MySqlDataStoreUtilities {
@@ -111,6 +112,33 @@ public class MySqlDataStoreUtilities {
         }
 
         return professionals;
+    }
+
+    public static void scheduleAppointment(Appointment appointment) throws SQLException {
+        try {
+            getConnection();
+            String query = "INSERT INTO Appointments(id,userId,techId,street,zip,orderDate,scheduledDate,scheduledTime,status)" +
+                "VALUES (?,?,?,?,?,?,?,?,?);";
+
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1, appointment.getId());
+            pst.setString(2, appointment.getUserId());
+            pst.setString(3, appointment.getTechId());
+            pst.setString(4, appointment.getStreet());
+            pst.setString(5, appointment.getZip());
+            Date orderDate = Date.valueOf(appointment.getOrderDate());
+            pst.setDate(6, orderDate);
+            Date scheduledDate = Date.valueOf(appointment.getScheduledDate());
+            pst.setDate(7, scheduledDate);
+            Time time = Time.valueOf(appointment.getTime());
+            pst.setTime(8, time);
+            pst.setString(9, appointment.getStatus());
+            pst.execute();
+        } 
+        catch (Exception e) {
+            System.out.println(e);
+            throw e;
+        }
     }
 
 

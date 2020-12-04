@@ -194,14 +194,7 @@
           </section><!-- End Services Section -->
       
           <!-- ======= Cta Section ======= -->
-      
-      
-      
-      
-      
-      
-      
-      
+    
         </main><!-- End #main -->
       
       
@@ -272,8 +265,6 @@
           
                 <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
                   <div class="col-xl-6 col-lg-8">
-                                <h1>holalalala</h1>
-
                     <h1>FixIt<span>.</span></h1>
                     <h2>Where do you need a service?</h2>>
                     <h2>

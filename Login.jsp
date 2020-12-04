@@ -52,7 +52,7 @@
               <%}
                   session.removeAttribute("registration_msg");
               %>
-               <a href="Registration"> New User? Register here</a>
+               <a href="Registration.jsp"> New User? Register here</a>
             </div>
          </div>
       </div>
