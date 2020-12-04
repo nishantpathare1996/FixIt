@@ -58,7 +58,7 @@ public class Login extends HttpServlet {
 			response.sendRedirect("Home.jsp");
 		}
 		else{
-			session.setAttribute("login_err", "Please check userId and password.");
+			session.setAttribute("login_err", "Invalid credentials.");
 			response.sendRedirect("Login.jsp");
 		}
 	}

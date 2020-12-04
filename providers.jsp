@@ -60,8 +60,8 @@
   var myArray = []
   $.ajax({
     method:'GET',
-    //url:`http://localhost/FixIt/GetProfessionals?category=${category}&subCategory=Repairs`,
-    url:'http://localhost/FixIt/GetProfessionals?category='+category,
+    // url:`http://localhost/FixIt/GetProfessionals?category=${category}&subCategory=Repairs`,
+    url:'http://localhost/Project/GetProfessionals?category='+category,
     success:function(response){
       console.log("yolo")
       myArray = response
@@ -96,7 +96,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <h4>Select from service provider</h4>
           <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="Home.jsp">Home</a></li>
             <li>Service Providers</li>
           </ol>
         </div>

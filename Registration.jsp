@@ -45,7 +45,13 @@
       <div class="col-3" style="margin-top: 100px;margin-left: 50px">
         <div class="container border p-5">
           <h2>Register as a customer</h2>
-
+          <% 
+            if (session.getAttribute("registration_msg")!=null){
+          %>
+              <h4 style='color:red'>${registration_msg}</h4>
+          <%}
+              session.removeAttribute("registration_msg");
+          %>
           <form method="post" action="Registration" >
             <label for="fname">First name:</label><br>
             <input type="text" id="fname" name="fname" value=""><br>
@@ -70,7 +76,7 @@
 
             <input type="submit" value="Submit">
           </form> 
-        <a href="Login">Click here to logiasdn</a>
+        <a href="Login.jsp">Click here to Login</a>
       </div>
     </div>
   </div>

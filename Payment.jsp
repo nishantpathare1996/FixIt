@@ -112,15 +112,15 @@
                <div class="form-group col-md-4">
                 <label for="inputPassword4">Select Time Slot</label>
                 <select id="time" name="time" class="form-control">
-                  <option value="2">9:00 am-10:00 am</option>
-                  <option value="2">10:00 am-11:00 am</option>
-                  <option value="2">11:00 am-12:00 pm</option>
-                  <option value="2">12:00 pm-1:00 pm</option>
-                  <option value="2">1:00 pm-2:00 pm</option>
-                  <option value="2">2:00 pm-3:00 pm</option>
-                  <option value="2">3:00 pm-4:00 pm</option>
-                  <option value="2">4:00 pm-5:00 pm</option>
-                 
+                  <option value="09:00:00">9:00 am</option>
+                  <option value="10:00:00">10:00 am</option>
+                  <option value="11:00:00">11:00 am</option>
+                  <option value="12:00:00">12:00 pm</option>
+                  <option value="13:00:00">1:00 pm</option>
+                  <option value="14:00:00">2:00 pm</option>
+                  <option value="15:00:00">3:00 pm</option>
+                  <option value="16:00:00">4:00 pm</option>
+                  <option value="17:00:00">5:00 pm</option>
                 </select>
                <!-- <input type="time" class="form-control" id="inputPassword4" placeholder="2 am"> -->
               </div> 
