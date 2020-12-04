@@ -69,17 +69,17 @@
       <div class="container">       
         <div>
           <h3>Order Summary</h3>
-          <p><b>Name:</b></p>
+          <p><b>Name: ${firstname}</b></p>
           <p><b>Price:</b></p>
-          <p><b>Time Slot:</b></p>
-          <p><b>Date: </b></p>
-          <p><b>Serive Provider:</b></p>
-          <p><b>City: </b></p>
+          <p><b>Time Slot: <%=request.getParameter("time")%> </b></p>
+          <p><b>Date: <%=request.getParameter("date")%> </b></p>
+          <p><b>Service Provider: <%=request.getParameter("id")%></b></p>
+          <p><b>City: ${city}</b></p>
 
         </div>
         <section id="team" class="team">
           <div>
-          <form>
+          <form method="Post" action="ScheduleAppointment">
            <h3>Please fill the form</h3>
             <div class="form-row">
             <div class="form-group col-md-8">
@@ -89,42 +89,20 @@
            </div>
             <div class="form-row">
               <div class="form-group col-md-3">
-                <label for="inputCity">City</label>
-                <input type="text" class="form-control" id="inputCity">
+                <label for="inputCity">Credit Card No.</label>
+                <input type="text" class="form-control" id="inputCity" placeholder="XXX XXX XXXX" name="credit">
+              </div>
+              <div class="form-group col-md-1">
+                <label for="inputState">cvv</label>
+                <input type="password" class="form-control" id="inputCity" placeholder="***" name="cvv">
+                
               </div>
               <div class="form-group col-md-3">
-                <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
-                  <option selected>Choose...</option>
-                  <option>...</option>
-                </select>
-              </div>
-              <div class="form-group col-md-2">
-                <label for="inputZip">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
+                <label for="inputZip">Expiry Date</label>
+                <input type="text" class="form-control" id="inputZip" placeholder="mm/yyyy" name="expiry">
               </div>
             </div>
-            <div class="form-row">
-              <div class="form-group col-md-4">
-                <label class="control-label" for="date">Date</label>
-                 <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="date"/>
-              </div>
-               <div class="form-group col-md-4">
-                <label for="inputPassword4">Select Time Slot</label>
-                <select id="time" name="time" class="form-control">
-                  <option value="09:00:00">9:00 am</option>
-                  <option value="10:00:00">10:00 am</option>
-                  <option value="11:00:00">11:00 am</option>
-                  <option value="12:00:00">12:00 pm</option>
-                  <option value="13:00:00">1:00 pm</option>
-                  <option value="14:00:00">2:00 pm</option>
-                  <option value="15:00:00">3:00 pm</option>
-                  <option value="16:00:00">4:00 pm</option>
-                  <option value="17:00:00">5:00 pm</option>
-                </select>
-               <!-- <input type="time" class="form-control" id="inputPassword4" placeholder="2 am"> -->
-              </div> 
-            </div>
+            
            <div>
             <button type="submit" class="btn btn-secondary">Make Payment</button>
           </div>

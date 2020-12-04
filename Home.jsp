@@ -210,19 +210,19 @@
               </div>
               <div class="modal-body">
                 
-                <form action="providers.jsp">
+                <form action="AvailableProfessionals">
                   <div class="list-group">
                   <div class="radio list-group-item list-group-item-action">
                     <label><input type="radio" name="category" value="electrician">&nbsp;&nbsp;&nbsp;Repairs and fixes</label>
                   </div>
                   <div class="radio list-group-item list-group-item-action">
-                    <label><input type="radio" name="category" value="Pest">&nbsp;&nbsp;&nbsp;Electricity Breakdown</label>
+                    <label><input type="radio" name="category" value="electrician">&nbsp;&nbsp;&nbsp;Electricity Breakdown</label>
                   </div>
                   <div class="radio list-group-item list-group-item-action">
-                    <label><input type="radio" name="category" value="Wiring">&nbsp;&nbsp;&nbsp;Electrical Wiring</label>
+                    <label><input type="radio" name="category" value="electrician">&nbsp;&nbsp;&nbsp;Electrical Wiring</label>
                   </div>
                   <div class="radio list-group-item list-group-item-action">
-                    <label><input type="radio" name="category" value="installing">&nbsp;&nbsp;&nbsp;Installing Service</label>
+                    <label><input type="radio" name="category" value="electrician">&nbsp;&nbsp;&nbsp;Installing Service</label>
                   </div>
                    <input class="mt-3" type="submit" value="Submit" style="background-color: #ffc451;">
                    </div>
