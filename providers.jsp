@@ -74,7 +74,7 @@
     var table = document.getElementById('myTable')
 
     for (var i = 0; i < data.length; i++){
-      var row = '<tr><td><img src="assets/img/team/team-3.jpg" width="120px"></td><td>'+data[i].firstName+'</td><td>'+data[i].lastName+'</td><td>'+data[i].city+'</td><td>3/5</td><td>'+data[i].category+'</td><td>'+data[i].email+'</td><td><a href="#">View Reviews</a></td><td><button><a href="Payment.jsp">Select</button></td></tr>'
+      var row = '<tr><td><img src="assets/img/team/team-3.jpg" width="120px"></td><td>'+data[i].firstName+'</td><td>'+data[i].lastName+'</td><td>'+data[i].city+'</td><td>3/5</td><td>'+data[i].category+'</td><td>'+data[i].email+'</td><td><a href="ViewReview.jsp">View Reviews</a></td><td><button><a href="Payment.jsp">Select</button></td></tr>'
             
       table.innerHTML += row
     }

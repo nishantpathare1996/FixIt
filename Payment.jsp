@@ -73,7 +73,7 @@
           <p><b>Price:</b></p>
           <p><b>Time Slot:</b></p>
           <p><b>Date: </b></p>
-          <p><b>Serive Provider:</b></p>
+          <p><b>Service Provider:</b></p>
           <p><b>City: </b></p>
 
         </div>

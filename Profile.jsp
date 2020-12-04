@@ -55,10 +55,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h4>Reviews</h4>
+          <h4>User Profile</h4>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>Reviews</li>
+            <li>User Profile</li>
           </ol>
         </div>
 
@@ -70,7 +70,7 @@
         
         <section id="team" class="team">
           <div>
-         
+            
           </div>
         </section><!-- End Team Section -->
         </div>
