@@ -9,13 +9,17 @@ import java.io.IOException;
 import java.util.*;
 import javax.servlet.http.HttpSession;
 
+import pojo.Professional;
+
 @WebServlet("/GetProfessionals")
 
 public class GetProfessionals extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 		HttpServletResponse response) throws ServletException, IOException {
-	response.setContentType("application/json");
+
+            System.out.print("getprofessionals is called!!!!!!");
+	    // response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 		// PrintWriter pw = response.getWriter();
         HttpSession session = request.getSession(true);
@@ -25,16 +29,20 @@ public class GetProfessionals extends HttpServlet {
         String subCategory = request.getParameter("subCategory");
         String category = request.getParameter("category");
         
+        System.out.println("In Getprofessionals: "+category); 
+
         ArrayList<Professional> professionals = new ArrayList<Professional>();
         try{
             professionals = MySqlDataStoreUtilities.getProfessionals(cityCode,category);
         }
         catch(Exception e){
         }
-        String professionalJson = new Gson().toJson(professionals);
+        request.setAttribute("professionals",professionals);
+        System.out.println(professionals);
+        request.getRequestDispatcher("providers.jsp").forward(request,response);
+        // // String professionalJson = new Gson().toJson(professionals);
 
-        System.out.println(professionalJson);
-        response.getWriter().write(professionalJson);
-
+        
+        // response.getWriter().write(professionalJson);
 	}
 }
