@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<%@page import="java.util.ArrayList" %>
+<%@page import="pojo.Professional" %>
+<%@page import="java.util.Iterator" %>
 <!DOCTYPE html>
 <html lang="en">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<head>
-  
+<head>  
 
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -47,7 +49,11 @@
  
 
 <body>
-  <script>
+  
+  <% 
+    String category = request.getParameter("category");
+  %>
+  <!-- <script>
   const queryString = window.location.search;
   console.log("yo");
   console.log(queryString);
@@ -84,7 +90,7 @@
   }
 
 
-</script>
+</script> -->
  <%@ include file="Header.jsp" %>
 
   <main id="main">
@@ -118,7 +124,7 @@
 
 
         <div>
-          <form>
+          <form action="GetProfessionals">
             
             <div class="form-row">
                 <div>&nbsp;&nbsp;Name : ${firstname} </div>            
@@ -138,16 +144,17 @@
               <div class="form-group col-md-4">
                 <label for="inputPassword4">Select Time Slot</label>
                 <select id="time" name="time" class="form-control">
-                  <option value="2">9:00 am-10:00 am</option>
-                  <option value="2">10:00 am-11:00 am</option>
-                  <option value="2">11:00 am-12:00 pm</option>
-                  <option value="2">12:00 pm-1:00 pm</option>
-                  <option value="2">1:00 pm-2:00 pm</option>
-                  <option value="2">2:00 pm-3:00 pm</option>
-                  <option value="2">3:00 pm-4:00 pm</option>
-                  <option value="2">4:00 pm-5:00 pm</option>
-                 
+                  <option value="09:00:00">9:00 am</option>
+                  <option value="10:00:00">10:00 am</option>
+                  <option value="11:00:00">11:00 am</option>
+                  <option value="12:00:00">12:00 pm</option>
+                  <option value="13:00:00">1:00 pm</option>
+                  <option value="14:00:00">2:00 pm</option>
+                  <option value="15:00:00">3:00 pm</option>
+                  <option value="16:00:00">4:00 pm</option>
+                  <option value="17:00:00">5:00 pm</option>
                 </select>
+                
                <!-- <input type="time" class="form-control" id="inputPassword4" placeholder="2 am"> -->
               </div> 
             </div>
@@ -155,13 +162,65 @@
            <!--<div>
             <button type="submit" class="btn btn-secondary" onclick="">Check available technicicans</button>
           </div> -->
-          </form>
+          <input type='hidden' name='category' value='<%=request.getParameter("category")%>'>
+          
         </div>
          <div>
-            <button type="submit" class="btn btn-secondary" onclick="showDiv('toggle')">Check available technicicans</button>
+            <button type="submit" class="btn btn-secondary">Check available technicicans</button>
         </div>
+      </form>
         <br/><br/>
-        <div id="toggle" style="display:none">
+
+      </div>
+        
+    </section><!-- End Team Section -->
+
+    <section id="services" class="services">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Services</h2>
+          <p>Choose from our available technicicans</p>
+        </div>
+
+        <div class="row">
+          
+          <%
+          if(request.getAttribute("professionals") != null){
+            System.out.println("Yaaaah We got professionals in providers.");
+            ArrayList<Professional> professionalList = (ArrayList) request.getAttribute("professionals");
+            System.out.println(request.getAttribute("professionals"));
+            System.out.println(professionalList); 
+            for(int i=0;i<professionalList.size();i++){
+            %>
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-arch"></i></div>
+                <h4><a href="Payment.jsp?<%=professionalList.get(i).getId()%>"><%=professionalList.get(i).getFirstName()%>&nbsp;<%=professionalList.get(i).getLastName()%></a></h4>
+                
+                <p>Hakunama tata yaani koi chinta nahi hai zindagi mei</p>
+                <p><%=professionalList.get(i).getCity()%></p>
+                <form action="Payment.jsp">
+                    <input type='hidden' name='id' value='<%=professionalList.get(i).getId()%>'>
+                    <input type='hidden' name='date' value='<%=request.getParameter("date")%>'>
+                    <input type='hidden' name='time' value='<%=request.getParameter("time")%>'>
+                    <button type="submit" class="btn btn-secondary">Select</button>
+                </form>
+              </div>
+            </div>
+            <%
+            }
+          }
+        %>
+
+         
+
+        </div>
+
+       </div>
+    </section>
+        
+        <div id="toggle" style="">
         <h2>Our Technicians</h2>
          <table class="table table-striped">
         <tr  style="background-color: #9b870c">
@@ -179,12 +238,29 @@
         <tbody id="myTable">
         </tbody>
         </table>
-      </div>
-        
-    </section><!-- End Team Section -->
+        <%
+        if(request.getAttribute("professionals") != null){
+          System.out.println("Yaaaah We got professionals in providers.");
+          ArrayList<Professional> professionalList = (ArrayList) request.getAttribute("professionals");
+          System.out.println(request.getAttribute("professionals"));
+          System.out.println(professionalList); 
+          for(int i=0;i<professionalList.size();i++){
+          %>
+          <%=professionalList.get(i).getFirstName()%>
+          <%=professionalList.get(i).getLastName()%>
 
-      </div>
-    </section>
+          <%
+          }
+        }
+      %>
+          
+          
+          
+
+        
+    
+
+   
 
   </main><!-- End #main -->
 
