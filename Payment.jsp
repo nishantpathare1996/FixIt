@@ -13,7 +13,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Inner Page - Gp Bootstrap Template</title>
-  <meta content="" name="descriptison">eqweqwee
+  <meta content="" name="descriptison">
   <meta content="" name="keywords">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Favicons -->
@@ -67,18 +67,49 @@
     
     <section class="inner-page">
       <div class="container">       
-        <div>
+       <!--  <div>
           <h3>Order Summary</h3>
           <p><b>Name: ${firstname}</b></p>
           <p><b>Price:</b></p>
 
           <p><b>Time Slot: <%=request.getParameter("time")%> </b></p>
           <p><b>Date: <%=request.getParameter("date")%> </b></p>
-          <p><b>Service Provider: <%=request.getParameter("id")%></b></p>
+          <p><b>Service Provider: <%=request.getParameter("providerName")%></b></p>
           <p><b>City: ${city}</b></p>
-
-
+        </div> -->
+        <div>
+          <h3>Order Summary</h3>
+          <table class="table table-hover table-bordered" style="width: 460px;">
+            <tbody>
+              <tr>
+                <td><b>Name: </b></td>
+                <td>${firstname}</td>                
+              </tr>
+              <tr>
+                <td><b>Price:</b></td>
+                <td>$36</td>                
+              </tr>
+              <tr> 
+                <td><b>Time Slot:</b></td>
+                <td><%=request.getParameter("time")%></td>
+              </tr>
+               <tr>        
+                <td><b> Scheduled Date: </b></td>
+                <td><%=request.getParameter("date")%></td>
+              </tr>
+              <tr>        
+                <td><b>Service Provider:</b></td>
+                <td><%=request.getParameter("providerName")%></td>
+              </tr>
+               <tr>        
+                <td><b>City:</b></td>
+                <td>${city}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+
+
         <section id="team" class="team">
           <div>
           <form method="Post" action="ScheduleAppointment">

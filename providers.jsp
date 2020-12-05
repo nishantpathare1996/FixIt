@@ -15,7 +15,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Inner Page - Gp Bootstrap Template</title>
-  <meta content="" name="descriptison">eqweqwee
+  <meta content="" name="descriptison">
   <meta content="" name="keywords">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Favicons -->
@@ -197,6 +197,7 @@
               <div class="icon-box">
                 <div class="icon"><i class="bx bx-arch"></i></div>
                 <h4><a href="Payment.jsp?<%=professionalList.get(i).getId()%>"><%=professionalList.get(i).getFirstName()%>&nbsp;<%=professionalList.get(i).getLastName()%></a></h4>
+                 <a href=ViewReview.jsp?name=<%=professionalList.get(i).getId()%>>View Reviews</a>
                 
                 <p>Hakunama tata yaani koi chinta nahi hai zindagi mei</p>
                 <p><%=professionalList.get(i).getCity()%></p>
@@ -204,6 +205,8 @@
                     <input type='hidden' name='id' value='<%=professionalList.get(i).getId()%>'>
                     <input type='hidden' name='date' value='<%=request.getParameter("date")%>'>
                     <input type='hidden' name='time' value='<%=request.getParameter("time")%>'>
+                    <input type='hidden' name='providerName' value='<%=professionalList.get(i).getFirstName()%>&nbsp;<%=professionalList.get(i).getLastName()%>'>
+
                     <button type="submit" class="btn btn-secondary">Select</button>
                 </form>
               </div>

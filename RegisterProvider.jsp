@@ -55,7 +55,7 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h4>User Profile</h4>
+          <h4>Registering New Service Provider</h4>
           <ol>
             <li><a href="index.html">Home</a></li>
             <li>User Profile</li>
@@ -69,46 +69,71 @@
       <div class="container">       
         
         <section id="team" class="team">         
-          <h5>Customer Name:${firstname}</h5>
-          <br/><br/>       
-          <div>
-            <h3>Appointments:</h3>
-            <br/>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Service Provider</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Review</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>20/5/2020</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td><a href="writeReview.jsp">write review</a></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>20/5/2020</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td><a href="writeReview.jsp">write review</a></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>20/5/2020</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td><a href="writeReview.jsp">write review</a></td>
-                  </tr>
-                </tbody>
-              </table>
-          </div>
+             <div>
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="inputEmail4">First Name</label>
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inputPassword4">Last Name</label>
+                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-row">
+              <div class="form-group col-md-8">
+                <label for="inputAddress">Address Line 1</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+              </div>
+             </div>
+              <div class="form-row">
+                
+                <div class="form-group col-md-3">
+                  <label for="inputCity">City</label>
+                  <select id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>Chicago</option>
+                    <option>NewYork</option>
+                    <option>Boston</option>
+                    <option>Philadelphia</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="inputZip">Zip</label>
+                  <input type="text" class="form-control" id="inputZip">
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="inputState">Category</label>
+                  <select id="inputCategory" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>Electrician</option>
+                    <option>Plumber</option>
+                    <option>Pest Control</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                
+                <div class="form-group col-md-4">
+                  <label for="inputPassword4">Latitute of store</label>
+                  <input type="password" class="form-control" id="inputPassword4" placeholder="">
+                </div>
+                 <div class="form-group col-md-4">
+                  <label for="inputPassword4">Longitute of store</label>
+                  <input type="password" class="form-control" id="inputPassword4" placeholder="">
+                </div>
+
+              </div>
+              <p>
+                  <i>Find Longitute and Latitude <a href="https://www.latlong.net/">here</a></i>
+                </p>
+
+             <div>
+              <button type="submit" class="btn btn-secondary">Book the slot</button>
+            </div>
+            </form>
+        </div>
         </section>
         </div>
       </section>
