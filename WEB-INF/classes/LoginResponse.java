@@ -1,21 +1,8 @@
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.*;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 
-/* 
-	Users class contains class variables id,name,password,usertype.
+import pojo.User;
 
-	Users class has a constructor with Arguments name, String password, String usertype.
-	  
-	Users  class contains getters and setters for id,name,password,usertype.
-
-*/
-
-public class LoginResponse extends HttpServlet{
+public class LoginResponse{
 	private String status;
 	private User user;
 	

@@ -1,3 +1,5 @@
+package pojo;
+
 import java.time.LocalTime;
 import java.time.LocalDate;
 
@@ -11,24 +13,37 @@ import java.time.LocalDate;
 */
 
 public class Appointment {
-    private String id;
+    private int appointmentId;
 	private String userId;
-	private String techId;
+	private String professionalId;
+	private String serviceId;
     private String street;
     private String zip;
+	private String serviceDetails;
+	private String addInstructions;
     private LocalDate orderDate;
-	private LocalDate scheduledDate;
-    private LocalTime time;
-    private String status = "pending";
+	private LocalTime orderTime;
+	private LocalDate serviceDate;
+    private LocalTime serviceTime;
+	private String creditCard;
+    private String serviceStatus = "pending";
 	
-	public Appointment(String userId,String techId,String street,String zip, LocalDate scheduledDate, LocalTime time) {
-        this.userId = userId;
-		this.techId = techId;
+	public Appointment(int appointmentId,String userId,String professionalId,String serviceId,
+					String street,String zip,String serviceDetails,
+					String addInstructions,LocalDate serviceDate,LocalTime serviceTime,String creditCard) {
+        this.appointmentId = appointmentId;
+		this.userId = userId;
+		this.professionalId = professionalId;
+		this.serviceId = serviceId;
         this.street = street;
         this.zip = zip;
+		this.serviceDetails = serviceDetails;
+		this.addInstructions = addInstructions;
 		this.orderDate = LocalDate.now();
-        this.scheduledDate = scheduledDate;
-        this.time = time;
+		this.orderTime = LocalTime.now();
+		this.serviceDate = serviceDate;
+		this.serviceTime = serviceTime;
+		this.creditCard = creditCard;
 	}
 
 	// public User(String userId,String fn,String ln, String password, String email,String phone) {
@@ -40,11 +55,11 @@ public class Appointment {
     //     this.phone = phone;
 	// }
 
-	public String getId() {
-		return id;
+	public int getAppointmentId() {
+		return appointmentId;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setAppointmentId(int appointmentId) {
+		this.appointmentId = appointmentId;
 	}
 
 	public String getUserId() {
@@ -54,11 +69,18 @@ public class Appointment {
 		this.userId = userId;
 	}
 
-	public String getTechId(){
-		return techId;
+	public String getProfessionalId(){
+		return professionalId;
 	}
-	public void setTechId(String techId) {
-		this.techId = techId;
+	public void setProfessionalId(String professionalId) {
+		this.professionalId = professionalId;
+	}
+
+	public String getServiceId(){
+		return serviceId;
+	}
+	public void setServiceId(String ServiceId) {
+		this.serviceId = serviceId;
 	}
 
     public String getStreet() {
@@ -74,6 +96,20 @@ public class Appointment {
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
+
+	public String getServiceDetails() {
+		return serviceDetails;
+	}
+	public void setServiceDetails(String serviceDetails) {
+		this.serviceDetails = serviceDetails;
+	}
+
+	public String getAddInstructions() {
+		return addInstructions;
+	}
+	public void setAddInstructions(String addInstructions) {
+		this.addInstructions = addInstructions;
+	}
     
 	public LocalDate getOrderDate() {
 		return orderDate;
@@ -82,24 +118,38 @@ public class Appointment {
 		this.orderDate = date;
 	}
 
-	public LocalDate getScheduledDate() {
-		return scheduledDate;
+	public LocalTime getOrderTime() {
+		return orderTime;
 	}
-	public void setScheduledDate(LocalDate date) {
-		this.scheduledDate = date;
-	}
-
-    public LocalTime getTime() {
-		return time;
-	}
-	public void setTime(LocalTime time) {
-		this.time = time;
+	public void setOrderTime(LocalTime orderTime) {
+		this.orderTime = orderTime;
 	}
 
-    public String getStatus() {
-		return status;
+	public LocalDate getServiceDate() {
+		return serviceDate;
 	}
-	public void setStatus(String status) {
-		this.status = status;
+	public void setServiceDate(LocalDate serviceDate) {
+		this.serviceDate = serviceDate;
+	}
+
+    public LocalTime getServiceTime() {
+		return serviceTime;
+	}
+	public void setServiceTime(LocalTime serviceTime) {
+		this.serviceTime = serviceTime;
+	}
+
+	public String getServiceStatus() {
+		return serviceStatus;
+	}
+	public void setServiceStatus(String serviceStatus) {
+		this.serviceStatus = serviceStatus;
+	}
+
+    public String getCreditCard() {
+		return creditCard;
+	}
+	public void setCreditCard(String creditCard) {
+		this.creditCard = creditCard;
 	}
 }

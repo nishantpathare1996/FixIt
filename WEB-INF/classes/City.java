@@ -1,12 +1,6 @@
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.*;
+package pojo;
 
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-public class City extends HttpServlet{
+public class City{
 	private String code;
 	private String name;
     private String state;

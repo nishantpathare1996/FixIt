@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.ServletOutputStream;
 import com.google.gson.Gson;
+import pojo.User;
 
 @WebServlet("/Login")
 
