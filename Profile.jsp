@@ -109,6 +109,8 @@
                 </tbody>
               </table>
           </div>
+          <br/>
+          <div><h3>View all Reviews</h3></div>
         </section>
         </div>
       </section>
