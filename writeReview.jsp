@@ -13,7 +13,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Inner Page - Gp Bootstrap Template</title>
-  <meta content="" name="descriptison">s
+  <meta content="" name="descriptison">
   <meta content="" name="keywords">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Favicons -->
@@ -55,10 +55,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h4>Reviews</h4>
+          <h4>User Profile</h4>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>Reviews</li>
+            <li>User Profile</li>
           </ol>
         </div>
 
@@ -68,11 +68,9 @@
     <section class="inner-page">
       <div class="container">       
         
-        <section id="team" class="team">
-          <div>
+        <section id="team" class="team">         
          
-          </div>
-        </section><!-- End Team Section -->
+        </section>
         </div>
       </section>
 

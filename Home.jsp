@@ -50,9 +50,11 @@
                       <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <span  id="selected">
-                          Select City
+                          ${city}
                           </span>
                         </button>
+                        <br/>
+                        <br/>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                           <a class="dropdown-item" href="SetCity?city=CHI" value="CHI">Chicago</a>
                           <a class="dropdown-item" href="SetCity?city=NYC" value="NYC">New York</a>

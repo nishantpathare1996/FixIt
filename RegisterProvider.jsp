@@ -13,7 +13,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Inner Page - Gp Bootstrap Template</title>
-  <meta content="" name="descriptison">s
+  <meta content="" name="descriptison">
   <meta content="" name="keywords">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Favicons -->
@@ -55,10 +55,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h4>Reviews</h4>
+          <h4>Registering New Service Provider</h4>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>Reviews</li>
+            <li>User Profile</li>
           </ol>
         </div>
 
@@ -68,11 +68,73 @@
     <section class="inner-page">
       <div class="container">       
         
-        <section id="team" class="team">
-          <div>
-         
-          </div>
-        </section><!-- End Team Section -->
+        <section id="team" class="team">         
+             <div>
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="inputEmail4">First Name</label>
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inputPassword4">Last Name</label>
+                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-row">
+              <div class="form-group col-md-8">
+                <label for="inputAddress">Address Line 1</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+              </div>
+             </div>
+              <div class="form-row">
+                
+                <div class="form-group col-md-3">
+                  <label for="inputCity">City</label>
+                  <select id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>Chicago</option>
+                    <option>NewYork</option>
+                    <option>Boston</option>
+                    <option>Philadelphia</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="inputZip">Zip</label>
+                  <input type="text" class="form-control" id="inputZip">
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="inputState">Category</label>
+                  <select id="inputCategory" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>Electrician</option>
+                    <option>Plumber</option>
+                    <option>Pest Control</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                
+                <div class="form-group col-md-4">
+                  <label for="inputPassword4">Latitute of store</label>
+                  <input type="password" class="form-control" id="inputPassword4" placeholder="">
+                </div>
+                 <div class="form-group col-md-4">
+                  <label for="inputPassword4">Longitute of store</label>
+                  <input type="password" class="form-control" id="inputPassword4" placeholder="">
+                </div>
+
+              </div>
+              <p>
+                  <i>Find Longitute and Latitude <a href="https://www.latlong.net/">here</a></i>
+                </p>
+
+             <div>
+              <button type="submit" class="btn btn-secondary">Book the slot</button>
+            </div>
+            </form>
+        </div>
+        </section>
         </div>
       </section>
 

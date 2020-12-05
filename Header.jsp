@@ -44,12 +44,14 @@
 
                   <li><a href="Home.jsp">Home</a></li>
                   <li><a href="">About</a></li>
+                  <li><a href="RegisterProvider.jsp">Register</a></li>
 
                   <li><a href="">Contact us</a></li>
                     <%
                      if (session.getAttribute("userId")!=null){
                     %>
                   <li><a href=''>Welcome ${firstname}</a></li>
+                  <li><a href='Profile.jsp'>Profile</a></li>
                   <li><a href='Logout'>Logout</a></li>
                     <%}
                      else{%>
