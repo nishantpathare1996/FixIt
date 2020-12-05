@@ -139,11 +139,11 @@
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label class="control-label" for="date">Date</label>
-                 <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="date"/>
+                 <input class="form-control" id="date" name="serviceDate" placeholder="MM/DD/YYY" type="date"/>
               </div>
               <div class="form-group col-md-4">
                 <label for="inputPassword4">Select Time Slot</label>
-                <select id="time" name="time" class="form-control">
+                <select id="time" name="serviceTime" class="form-control">
                   <option value="09:00:00">9:00 am</option>
                   <option value="10:00:00">10:00 am</option>
                   <option value="11:00:00">11:00 am</option>
@@ -202,11 +202,12 @@
                 <p>Hakunama tata yaani koi chinta nahi hai zindagi mei</p>
                 <p><%=professionalList.get(i).getCity()%></p>
                 <form action="Payment.jsp">
-                    <input type='hidden' name='id' value='<%=professionalList.get(i).getId()%>'>
-                    <input type='hidden' name='date' value='<%=request.getParameter("date")%>'>
-                    <input type='hidden' name='time' value='<%=request.getParameter("time")%>'>
+                    <input type='hidden' name='professionalId' value='<%=professionalList.get(i).getId()%>'>
+                    <input type='hidden' name='serviceDate' value='<%=request.getParameter("serviceDate")%>'>
+                    <input type='hidden' name='serviceTime' value='<%=request.getParameter("serviceTime")%>'>
                     <input type='hidden' name='providerName' value='<%=professionalList.get(i).getFirstName()%>&nbsp;<%=professionalList.get(i).getLastName()%>'>
-
+                    <input type='hidden' name='category' value='<%=category%>'>
+                    
                     <button type="submit" class="btn btn-secondary">Select</button>
                 </form>
               </div>

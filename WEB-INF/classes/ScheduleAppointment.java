@@ -9,8 +9,9 @@ import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.time.LocalTime;
 import java.time.LocalDate;
+import pojo.Appointment;
 
-@WebServlet("/Appointment")
+@WebServlet("/ScheduleAppointment")
 
 public class ScheduleAppointment extends HttpServlet {
 	private String error_msg;
@@ -18,17 +19,34 @@ public class ScheduleAppointment extends HttpServlet {
 	/*   A json with user information is Obtained from HttpServletRequest variable and User Details are Added to the Users HashMap */
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter pw = response.getWriter();
         String status = "fail";
         HttpSession session = request.getSession(true);
+
+        int appointmentId = Utilities.getTotalAppointments() + 1;
+        System.out.println(appointmentId);
         String userId = session.getAttribute("userId").toString();
-        String techId = request.getParameter("techId");
-        // String city = session.getAttribute("city");
+        System.out.println(userId);
+        String professionalId = request.getParameter("professionalId");
+        System.out.println(professionalId);
+        String serviceId = request.getParameter("serviceId");
+        System.out.println(serviceId);
         String street = request.getParameter("street");
+        System.out.println(street);
         String zip = request.getParameter("zip");
-        LocalDate date = LocalDate.parse(request.getParameter("date"));
-        LocalTime time = LocalTime.parse(request.getParameter("time"));
-        Appointment appointment = new Appointment(userId,techId,street,zip,date,time);
+        System.out.println(zip);
+        // String serviceDetails = request.getParameter("serviceDetails");
+        String serviceDetails = "abcd";
+        // String addInstructions = request.getParameter("addInstructions");
+        String addInstructions = "abcd";
+        LocalDate serviceDate = LocalDate.parse(request.getParameter("serviceDate"));
+        System.out.println(serviceDate);
+        LocalTime serviceTime = LocalTime.parse(request.getParameter("serviceTime"));
+        System.out.println(serviceTime);
+        String creditCard = request.getParameter("creditCard");
+        System.out.println(creditCard);
+
+        Appointment appointment = new Appointment(appointmentId,userId,professionalId,serviceId,street,zip,serviceDetails,addInstructions,serviceDate,serviceTime,creditCard);
+
         try{
             MySqlDataStoreUtilities.scheduleAppointment(appointment);
             status = "success";

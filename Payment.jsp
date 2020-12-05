@@ -91,11 +91,11 @@
               </tr>
               <tr> 
                 <td><b>Time Slot:</b></td>
-                <td><%=request.getParameter("time")%></td>
+                <td><%=request.getParameter("serviceTime")%></td>
               </tr>
                <tr>        
                 <td><b> Scheduled Date: </b></td>
-                <td><%=request.getParameter("date")%></td>
+                <td><%=request.getParameter("serviceDate")%></td>
               </tr>
               <tr>        
                 <td><b>Service Provider:</b></td>
@@ -115,15 +115,19 @@
           <form method="Post" action="ScheduleAppointment">
            <h3>Please fill the form</h3>
             <div class="form-row">
-            <div class="form-group col-md-8">
-              <label for="inputAddress">Address Line 1</label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            <div class="form-group col-md-5">
+              <label for="inputAddress">Street</label>
+              <input type="text" name="street" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="inputAddress">Zip</label>
+              <input type="text" name="zip" class="form-control" id="inputAddress" placeholder="1234 Main St">
             </div>
            </div>
             <div class="form-row">
               <div class="form-group col-md-3">
                 <label for="inputCity">Credit Card No.</label>
-                <input type="text" class="form-control" id="inputCity" placeholder="XXX XXX XXXX" name="credit">
+                <input type="text" name="creditCard" class="form-control" id="inputCity" placeholder="XXX XXX XXXX" name="credit">
               </div>
               <div class="form-group col-md-1">
                 <label for="inputState">cvv</label>
@@ -135,8 +139,13 @@
                 <input type="text" class="form-control" id="inputZip" placeholder="mm/yyyy" name="expiry">
               </div>
             </div>
+            <input type='hidden' name='serviceTime' value='<%=request.getParameter("serviceTime")%>'>
+            <input type='hidden' name='serviceDate' value='<%=request.getParameter("serviceDate")%>'>
+            <input type='hidden' name='professionalId' value='<%=request.getParameter("professionalId")%>'>
+            <input type='hidden' name='serviceId' value='<%=request.getParameter("category")%>'>
+            <input type='hidden' name='professionalId' value='<%=request.getParameter("professionalId")%>'>
             
-           <div>
+            <div>
             <button type="submit" class="btn btn-secondary">Make Payment</button>
           </div>
           </form>

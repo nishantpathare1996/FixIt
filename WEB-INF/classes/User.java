@@ -1,11 +1,4 @@
-/* 
-	Users class contains class variables id,name,password,usertype.
-
-	Users class has a constructor with Arguments name, String password, String usertype.
-	  
-	Users  class contains getters and setters for id,name,password,usertype.
-
-*/
+package pojo;
 
 public class User {
 	private String userId;
