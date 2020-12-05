@@ -13,7 +13,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Inner Page - Gp Bootstrap Template</title>
-  <meta content="" name="descriptison">s
+  <meta content="" name="descriptison">
   <meta content="" name="keywords">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Favicons -->
@@ -70,7 +70,37 @@
         
         <section id="team" class="team">
           <div>
-         
+            <h4>Customer reviews for <%=request.getParameter("name")%></h4>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Rating</th>
+                  <th scope="col">Review</th>                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td width="150px">Mark Russo </td>
+                  <td width="70px">3/5</td>
+                  <td>THis is literally the best i have seen since a long long time To live in the world without becoming aware of the meaning of the world is like wandering about in a great library without touching the books.</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td width="150px">Jacob</td>
+                  <td width="70px">4/5</td>
+                  <td>Knowledge grows exponentially. The more we know, the greater our ability to learn, and the faster we expand our knowledge base</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td width="150px">Larry</td>
+                  <td width="70px">2/5</td>
+                  <td>Time is a river...and books are boats. Many volumes start down that stream, only to be wrecked and lost beyond recall in its sands. Only a few, a very few, endure the testings of time and live to bless the ages following</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section><!-- End Team Section -->
         </div>

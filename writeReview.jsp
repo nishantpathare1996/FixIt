@@ -69,7 +69,35 @@
       <div class="container">       
         
         <section id="team" class="team">         
-         
+             <div>
+              <form>
+                <h5>Writing Review for _______. </h5>
+                <p> Appointment was on ______</p>
+                <p>Category:________</p>
+                <div class="form-row">
+                  <div class="form-group col-md-2">
+                    <label for="inputEmail4">Review Rating : </label>
+                    <select id="inputState" class="form-control">
+                      <option selected>Choose...</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                <div class="form-group col-md-5">
+                  <label for="inputAddress">Write Review :</label>
+                  <textarea name='reviewtext' rows='5' cols='60' placeholder="Please write your review in brief"></textarea>
+                </div>
+               </div>
+               <div>
+                <button type="submit" class="btn btn-secondary">Submit Review</button>
+              </div>
+              </form>
+            </div>
         </section>
         </div>
       </section>

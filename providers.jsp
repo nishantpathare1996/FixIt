@@ -177,12 +177,12 @@
 
     <section id="services" class="services">
       <div class="container" data-aos="fade-up">
-
+        <%  if(request.getAttribute("professionals") != null){ %>
         <div class="section-title">
           <h2>Services</h2>
           <p>Choose from our available technicicans</p>
         </div>
-
+        <% } %>
         <div class="row">
           
           <%
