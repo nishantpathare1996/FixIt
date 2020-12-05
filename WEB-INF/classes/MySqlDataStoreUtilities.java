@@ -6,7 +6,9 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.io.*;
 import pojo.Professional;
-
+import pojo.User;
+import pojo.City;
+import pojo.Appointment;
 
 public class MySqlDataStoreUtilities {
     static Connection conn = null;
@@ -15,7 +17,7 @@ public class MySqlDataStoreUtilities {
     public static String getConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/homehubsql", "root", "root");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/homehubsql", "root", "3306");
             System.out.println("Trying SQL connection.");
             message = "Successfull";
             return message;
@@ -119,22 +121,28 @@ public class MySqlDataStoreUtilities {
     public static void scheduleAppointment(Appointment appointment) throws SQLException {
         try {
             getConnection();
-            String query = "INSERT INTO Appointments(id,userId,techId,street,zip,orderDate,scheduledDate,scheduledTime,status)" +
-                "VALUES (?,?,?,?,?,?,?,?,?);";
+            String query = "INSERT INTO appointment(appointmentId,userId,professionalId,serviceId,street,zip,serviceDetails,addInstructions,orderDate,orderTime,serviceDate,serviceTime,creditCard,serviceStatus)" +
+                "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
             PreparedStatement pst = conn.prepareStatement(query);
-            pst.setString(1, appointment.getId());
+            pst.setInt(1, appointment.getAppointmentId());
             pst.setString(2, appointment.getUserId());
-            pst.setString(3, appointment.getTechId());
-            pst.setString(4, appointment.getStreet());
-            pst.setString(5, appointment.getZip());
+            pst.setString(3, appointment.getProfessionalId());
+            pst.setString(4, appointment.getServiceId());
+            pst.setString(5, appointment.getStreet());
+            pst.setString(6, appointment.getZip());
+            pst.setString(7, appointment.getServiceDetails());
+            pst.setString(8, appointment.getAddInstructions());
             Date orderDate = Date.valueOf(appointment.getOrderDate());
-            pst.setDate(6, orderDate);
-            Date scheduledDate = Date.valueOf(appointment.getScheduledDate());
-            pst.setDate(7, scheduledDate);
-            Time time = Time.valueOf(appointment.getTime());
-            pst.setTime(8, time);
-            pst.setString(9, appointment.getStatus());
+            pst.setDate(9, orderDate);
+            Time orderTime = Time.valueOf(appointment.getOrderTime());
+            pst.setTime(10, orderTime);
+            Date serviceDate = Date.valueOf(appointment.getServiceDate());
+            pst.setDate(11, serviceDate);
+            Time serviceTime = Time.valueOf(appointment.getServiceTime());
+            pst.setTime(12, serviceTime);
+            pst.setString(13, appointment.getCreditCard());
+            pst.setString(14, appointment.getServiceStatus());
             pst.execute();
         } 
         catch (Exception e) {
@@ -143,5 +151,20 @@ public class MySqlDataStoreUtilities {
         }
     }
 
-
+    public static int getAppointmentsCount() throws Exception {
+        int count=0;
+        try {
+            getConnection();
+            String query = "select max(appointmentId) from  appointment";
+            PreparedStatement pst = conn.prepareStatement(query);
+            ResultSet rs = pst.executeQuery();
+            if(rs != null){
+                count = Integer.parseInt(rs.toString());
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+        
+        return count;
+    }
 }

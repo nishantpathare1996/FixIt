@@ -16,6 +16,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.time.*;
+import java.sql.SQLException;
+import pojo.Professional;
+import pojo.User;
+import pojo.City;
+import pojo.Appointment;
 
 @WebServlet("/Utilities")
 
@@ -167,6 +172,19 @@ public class Utilities extends HttpServlet{
 			}	
 		User user = hm.get(userId());
 		return user;
+	}
+
+	public static int getTotalAppointments(){
+		int count=0;
+		try
+		{
+			count = MySqlDataStoreUtilities.getAppointmentsCount();
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}	
+		return count;		
 	}
 
 	// public HashMap<String, City> getCities() throws Exception{
