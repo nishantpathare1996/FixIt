@@ -44,8 +44,12 @@ public class ScheduleAppointment extends HttpServlet {
         // System.out.println(serviceTime);
         String creditCard = request.getParameter("creditCard");
         // System.out.println(creditCard);
-
-        Appointment appointment = new Appointment(appointmentId,userId,professionalId,serviceId,street,zip,serviceDetails,addInstructions,serviceDate,serviceTime,creditCard);
+        double serviceCost= 100.00;
+        double discount = 10.00;
+        double finalCharges= serviceCost - discount;
+        Appointment appointment = new Appointment(appointmentId,userId,professionalId,serviceId,street,zip,
+                                                serviceDetails,addInstructions,serviceDate,serviceTime,creditCard,
+                                                serviceCost, discount, finalCharges);
 
         try{
             MySqlDataStoreUtilities.scheduleAppointment(appointment);

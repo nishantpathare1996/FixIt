@@ -98,10 +98,7 @@
                <input type="hidden" name="professionalId" value="e3">
                <input type="hidden" name="serviceId" value="elec23">
                <input type="hidden" name="totalCharges" value="212">
-               <input type="hidden" name="totalCharges" value="212">    
-              
-               
-
+               <input type="hidden" name="totalCharges" value="212"> 
                <div>
                 <button type="submit" class="btn btn-secondary">Submit Review</button>
               </div>
