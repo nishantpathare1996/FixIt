@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="pojo.Appointment"%>
+<%@ page import="java.util.ArrayList"%>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -74,46 +77,58 @@
           <div>
             <h3>Appointments:</h3>
             <br/>
+            <% ArrayList<Appointment> appointments= (ArrayList)request.getAttribute("appointments"); 
+              System.out.println(appointments);
+              %>
               <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
+                    <th scope="col">A id</th>
                     <th scope="col">Date</th>
+                    <th scope="col">Time</th>
                     <th scope="col">Service Provider</th>
                     <th scope="col">Price</th>
+                    <th scope="col">Status</th>                    
                     <th scope="col">Review</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <% for(int i=0;i<appointments.size();i++){
+                      %>
                   <tr>
-                    <th scope="row">1</th>
-                    <td>20/5/2020</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td><a href="writeReview.jsp">write review</a></td>
+                    <th scope="row"><%=i+1%></th>
+                    <td><%=appointments.get(i).getAppointmentId()%></td>
+                    <td><%=appointments.get(i).getOrderDate()%></td>
+                    <td><%=appointments.get(i).getOrderTime()%></td>
+                    <td><%=appointments.get(i).getProfessionalId()%></td>
+                    <td><%=appointments.get(i).getServiceCost()%></td>
+                    <td><%=appointments.get(i).getServiceStatus()%></td>
+
+                    <%  String serviceStatus= appointments.get(i).getServiceStatus();
+                    System.out.println(serviceStatus);
+                    if(serviceStatus.equals("pending")){ %>
+                      <td><i>Service Pending</i></td>
+                    <%} else{ %>
+                    <td>
+                      <a href="writeReview.jsp?appointmentId=<%=appointments.get(i).getAppointmentId()%>&professionalId=<%=appointments.get(i).getProfessionalId()%>&serviceId=<%=appointments.get(i).getServiceId()%>&totalCharges=<%=appointments.get(i).getServiceCost()%>">
+                        write review
+                      </a>
+                    </td>
+                    <% } %>
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>20/5/2020</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td><a href="writeReview.jsp">write review</a></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>20/5/2020</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td><a href="writeReview.jsp">write review</a></td>
-                  </tr>
+                  <% } %>
+                  
                 </tbody>
               </table>
           </div>
           <br/>
-          <div><h3>View all Reviews</h3></div>
+         
         </section>
         </div>
       </section>
+      
+
 
   </main><!-- End #main -->
 

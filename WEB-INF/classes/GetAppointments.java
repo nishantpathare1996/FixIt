@@ -24,7 +24,7 @@ public class GetAppointments extends HttpServlet {
             }
             request.setAttribute("appointments",appointments);
             System.out.println(appointments);
-            request.getRequestDispatcher("Appointments.jsp").forward(request,response);
+            request.getRequestDispatcher("Profile.jsp").forward(request,response);
         }catch (Exception e) {
             System.out.println(e.getMessage());
         }

@@ -19,7 +19,7 @@ public class MySqlDataStoreUtilities {
     public static String getConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/homehubsql", "root", "root");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/homehubsql", "root", "3306");
             System.out.println("Trying SQL connection.");
             message = "Successfull";
             return message;
@@ -186,7 +186,7 @@ public class MySqlDataStoreUtilities {
                 LocalDate orderDate = rs.getDate("orderDate").toLocalDate();
                 LocalTime orderTime = rs.getTime("orderTime").toLocalTime();
                 LocalDate serviceDate = rs.getDate("serviceDate").toLocalDate();
-                LocalTime serviceTime = rs.getTime("serviceime").toLocalTime();
+                LocalTime serviceTime = rs.getTime("serviceTime").toLocalTime();
                 Appointment appointment = new Appointment(rs.getInt("appointmentId"), rs.getString("userId"), rs.getString("professionalId"),
                     rs.getString("serviceId"), rs.getString("street"), rs.getString("zip"), rs.getString("serviceDetails"),
                     rs.getString("addInstructions"), orderDate, orderTime, serviceDate, serviceTime,

@@ -22,8 +22,8 @@ public class GetReviews extends HttpServlet {
         try {
             HashMap < String, ArrayList < Review >> hm = MongoDBDataStoreUtilities.getReviews();
             request.setAttribute("reviews",hm);
-            System.out.println(hm);
-            request.getRequestDispatcher("ViewReviews.jsp").forward(request,response);
+            System.out.println("dhage"+hm);
+            request.getRequestDispatcher("ViewReview.jsp").forward(request,response);
         }catch (Exception e) {
             System.out.println(e.getMessage());
         }
