@@ -200,8 +200,8 @@
               <div class="icon-box">
                 <div class="icon"><i class="bx bx-arch"></i></div>
                 <h4><a href="Payment.jsp?<%=professionalList.get(i).getId()%>"><%=professionalList.get(i).getFirstName()%>&nbsp;<%=professionalList.get(i).getLastName()%></a></h4>
-                 <a href=ViewReview.jsp?name=<%=professionalList.get(i).getId()%>>View Reviews</a>
-                
+                 <!-- <a href=ViewReview.jsp?name=<%=professionalList.get(i).getId()%>>View Reviews</a> -->
+                 <a href=GetReviews?name=<%=professionalList.get(i).getId()%>>View Reviews</a>
                 <p>Hakunama tata yaani koi chinta nahi hai zindagi mei</p>
                 <p><%=professionalList.get(i).getCity()%></p>
                 <form action="Payment.jsp">

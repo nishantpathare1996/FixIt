@@ -27,10 +27,14 @@ public class Appointment {
     private LocalTime serviceTime;
 	private String creditCard;
     private String serviceStatus = "pending";
+	private double serviceCost;
+	private double discount;
+	private double finalCharges;
 	
 	public Appointment(int appointmentId,String userId,String professionalId,String serviceId,
 					String street,String zip,String serviceDetails,
-					String addInstructions,LocalDate serviceDate,LocalTime serviceTime,String creditCard) {
+					String addInstructions,LocalDate serviceDate,LocalTime serviceTime,String creditCard,
+					double serviceCost,double discount,double finalCharges) {
         this.appointmentId = appointmentId;
 		this.userId = userId;
 		this.professionalId = professionalId;
@@ -44,6 +48,33 @@ public class Appointment {
 		this.serviceDate = serviceDate;
 		this.serviceTime = serviceTime;
 		this.creditCard = creditCard;
+		this.serviceCost = serviceCost;
+		this.discount = discount;
+		this.finalCharges = finalCharges;
+	}
+
+	public Appointment(int appointmentId,String userId,String professionalId,String serviceId,
+					String street,String zip,String serviceDetails,
+					String addInstructions,LocalDate orderdate, LocalTime orderTime,
+					LocalDate serviceDate,LocalTime serviceTime,String creditCard, String serviceStatus,
+					double serviceCost,double discount,double finalCharges) {
+        this.appointmentId = appointmentId;
+		this.userId = userId;
+		this.professionalId = professionalId;
+		this.serviceId = serviceId;
+        this.street = street;
+        this.zip = zip;
+		this.serviceDetails = serviceDetails;
+		this.addInstructions = addInstructions;
+		this.orderDate = orderdate;
+		this.orderTime = orderTime;
+		this.serviceDate = serviceDate;
+		this.serviceTime = serviceTime;
+		this.creditCard = creditCard;
+		this.serviceStatus = serviceStatus;
+		this.serviceCost = serviceCost;
+		this.discount = discount;
+		this.finalCharges = finalCharges;
 	}
 
 	// public User(String userId,String fn,String ln, String password, String email,String phone) {
@@ -151,5 +182,28 @@ public class Appointment {
 	}
 	public void setCreditCard(String creditCard) {
 		this.creditCard = creditCard;
+	}
+
+
+	public double getServiceCost() {
+		return serviceCost;
+	}
+	public void setServiceCost(double serviceCost) {
+		this.serviceCost = serviceCost;
+	}
+
+
+	public double getDiscount() {
+		return discount;
+	}
+	public void setDiscount(double discount) {
+		this.discount = discount;
+	}
+
+	public double getFinalCharges() {
+		return finalCharges;
+	}
+	public void setFinalCharges(double finalCharges) {
+		this.finalCharges = finalCharges;
 	}
 }

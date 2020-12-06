@@ -30,7 +30,7 @@ public class WriteReview extends HttpServlet {
 
         Review review = new Review(appointmentId,userId,category,professionalId,serviceId,city,totalCharges,reviewRating,reviewText,reviewDate);
         MongoDBDataStoreUtilities.insertReview(review);
-        response.sendRedirect("Home.jsp");
+        response.sendRedirect("Profile.jsp");
     }
 
     // protected void revew(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

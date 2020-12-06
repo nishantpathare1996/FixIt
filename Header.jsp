@@ -51,7 +51,7 @@
                      if (session.getAttribute("userId")!=null){
                     %>
                   <li><a href=''>Welcome ${firstname}</a></li>
-                  <li><a href='Profile.jsp'>Profile</a></li>
+                  <li><a href='GetAppointments'>Profile</a></li>
                   <li><a href='Logout'>Logout</a></li>
                     <%}
                      else{%>

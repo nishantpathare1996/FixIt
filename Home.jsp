@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -31,10 +32,11 @@
         <link href="assets/css/style.css" rel="stylesheet">
         <link href="assets/css/mystyle.css" rel="stylesheet">
     </head>
+    <script type="text/javascript" src="javascript.js"></script>
     <%
     if (session.getAttribute("city")!=null){
 %>
-    <body>
+    <body onload="init()">
 
         <!-- ======= Header ======= -->
         <!-- ======= Hero Section ======= -->
@@ -67,7 +69,16 @@
                       <div class="input-group-prepend">
                         <!-- <span class="input-group-text cyan lighten-2" id="basic-text1"><i class="fas fa-search text-white" aria-hidden="true"></i></span> -->
                       </div>
-                      <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search">
+                      <!-- <input class="form-control my-0 py-1" type="text" onkeyup=""placeholder="Search" aria-label="Search"> -->
+                      <div name="autofillform">
+                        <input type="text" name="searchId" value="" class="input"
+                          id="searchId" onkeyup="doCompletion()"
+                          placeholder="search here.." style="padding: 5px; font-size: 16px;" />
+                        <div id="auto-row">
+                          <table id="complete-table" class="gridtable"
+                            style="position: absolute; width: 315px;"></table>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </h2>
