@@ -73,25 +73,25 @@
             <form>
               <div class="form-row">
                 <div class="form-group col-md-4">
-                  <label for="inputEmail4">First Name</label>
-                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                  <label for="inputEmail4">First Name*</label>
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email" required>
                 </div>
                 <div class="form-group col-md-4">
-                  <label for="inputPassword4">Last Name</label>
-                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                  <label for="inputPassword4">Last Name*</label>
+                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password" required>
                 </div>
               </div>
               <div class="form-row">
               <div class="form-group col-md-8">
-                <label for="inputAddress">Address Line 1</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                <label for="inputAddress">Address Line 1*</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
               </div>
              </div>
               <div class="form-row">
                 
                 <div class="form-group col-md-3">
-                  <label for="inputCity">City</label>
-                  <select id="inputState" class="form-control">
+                  <label for="inputCity">City*</label>
+                  <select id="inputState" class="form-control" required>
                     <option selected>Choose...</option>
                     <option>Chicago</option>
                     <option>NewYork</option>
@@ -100,12 +100,12 @@
                   </select>
                 </div>
                 <div class="form-group col-md-2">
-                  <label for="inputZip">Zip</label>
-                  <input type="text" class="form-control" id="inputZip">
+                  <label for="inputZip">Zip*</label>
+                  <input type="text" class="form-control" id="inputZip" required>
                 </div>
                 <div class="form-group col-md-3">
-                  <label for="inputState">Category</label>
-                  <select id="inputCategory" class="form-control">
+                  <label for="inputState">Category*</label>
+                  <select id="inputCategory" class="form-control" required>
                     <option selected>Choose...</option>
                     <option>Electrician</option>
                     <option>Plumber</option>
@@ -116,11 +116,11 @@
               <div class="form-row">
                 
                 <div class="form-group col-md-4">
-                  <label for="inputPassword4">Latitute of store</label>
-                  <input type="password" class="form-control" id="inputPassword4" placeholder="">
+                  <label for="inputPassword4">Latitute of store*</label>
+                  <input type="password" class="form-control" id="inputPassword4" placeholder="" >
                 </div>
                  <div class="form-group col-md-4">
-                  <label for="inputPassword4">Longitute of store</label>
+                  <label for="inputPassword4">Longitute of store*</label>
                   <input type="password" class="form-control" id="inputPassword4" placeholder="">
                 </div>
 

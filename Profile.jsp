@@ -111,7 +111,7 @@
                       <td><i>Service Pending</i></td>
                     <%} else{ %>
                     <td>
-                      <a href="writeReview.jsp?appointmentId=<%=appointments.get(i).getAppointmentId()%>&professionalId=<%=appointments.get(i).getProfessionalId()%>&serviceId=<%=appointments.get(i).getServiceId()%>&totalCharges=<%=appointments.get(i).getServiceCost()%>">
+                      <a href="writeReview.jsp?appointmentId=<%=appointments.get(i).getAppointmentId()%>&professionalId=<%=appointments.get(i).getProfessionalId()%>&serviceId=<%=appointments.get(i).getServiceId()%>&totalCharges=<%=appointments.get(i).getServiceCost()%>&orderDate=<%=appointments.get(i).getOrderDate()%>">
                         write review
                       </a>
                     </td>

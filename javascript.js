@@ -80,30 +80,6 @@ function clearTable() {
 }
 
 
-// function parseMessages(responseXML) {
-    
-//     // no matches returned
-//     if (responseXML == null) {
-//         return false;
-//     } else {
-
-//         var services = responseXML.getElementsByTagName("services")[0];
-
-//         if (services.childNodes.length > 0) {
-//             completeTable.setAttribute("bordercolor", "black");
-//             completeTable.setAttribute("border", "1");
-    
-//             for (loop = 0; loop < services.childNodes.length; loop++) {
-//                 var service = services.childNodes[loop];
-//                 var serviceName = service.getElementsByTagName("productName")[0];
-//                 var serviceId = service.getElementsByTagName("id")[0];
-//                 appendService(serviceName.childNodes[0].nodeValue,
-//                     serviceId.childNodes[0].nodeValue);
-//             }
-//         }
-//     }
-// }
-
 function parseMessages(responseXML) {
     
     // no matches returned
@@ -111,19 +87,43 @@ function parseMessages(responseXML) {
         return false;
     } else {
 
-        var products = responseXML.getElementsByTagName("services")[0];
+        var services = responseXML.getElementsByTagName("services")[0];
 
-        if (products.childNodes.length > 0) {
+        if (services.childNodes.length > 0) {
             completeTable.setAttribute("bordercolor", "black");
             completeTable.setAttribute("border", "1");
     
-            for (loop = 0; loop < products.childNodes.length; loop++) {
-                var product = products.childNodes[loop];
-                var productName = product.getElementsByTagName("productName")[0];
-                var productId = product.getElementsByTagName("serviceId")[0];
-                appendService(productName.childNodes[0].nodeValue,
-                    productId.childNodes[0].nodeValue);
+            for (loop = 0; loop < services.childNodes.length; loop++) {
+                var service = services.childNodes[loop];
+                var serviceName = service.getElementsByTagName("serviceName")[0];
+                var serviceId = service.getElementsByTagName("id")[0];
+                appendService(serviceName.childNodes[0].nodeValue,
+                    serviceId.childNodes[0].nodeValue);
             }
         }
     }
 }
+
+// function parseMessages(responseXML) {
+    
+//     // no matches returned
+//     if (responseXML == null) {
+//         return false;
+//     } else {
+
+//         var products = responseXML.getElementsByTagName("services")[0];
+
+//         if (products.childNodes.length > 0) {
+//             completeTable.setAttribute("bordercolor", "black");
+//             completeTable.setAttribute("border", "1");
+    
+//             for (loop = 0; loop < products.childNodes.length; loop++) {
+//                 var product = products.childNodes[loop];
+//                 var productName = product.getElementsByTagName("productName")[0];
+//                 var productId = product.getElementsByTagName("id")[0];
+//                 appendService(productName.childNodes[0].nodeValue,
+//                     productId.childNodes[0].nodeValue);
+//             }
+//         }
+//     }
+// }

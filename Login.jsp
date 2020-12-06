@@ -5,7 +5,7 @@
       <meta charset="utf-8">
       <meta content="width=device-width, initial-scale=1.0" name="viewport">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <title>Reviews</title>
+      <title>FixIt</title>
       <meta content="text/html" name="descriptison">
       <!-- Favicons -->
       <link href="assets/img/favicon.png" rel="icon">
@@ -36,9 +36,9 @@
                <h2>Login</h2>
                <form method="Post" action="Login">
                   <label for="userId">username:</label><br>
-                  <input type="text" id="userId" name="userId" value=""><br>
+                  <input type="text" id="userId" name="userId" value="" size="30"><br>
                   <label for="password">Password</label><br>
-                  <input type="password" id="password" name="password" value=""><br><br>
+                  <input type="password" id="password" name="password" value="" size="30"><br><br>
                   <input id="" type="submit" value="Login">
                </form>
                <% 

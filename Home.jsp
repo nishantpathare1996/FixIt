@@ -8,7 +8,7 @@
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-        <title>Gp Bootstrap Template - Index</title>
+        <title>FixIt</title>
         <meta content="" name="descriptison">
         <meta content="" name="keywords">
 
@@ -73,7 +73,7 @@
                       <div name="autofillform">
                         <input type="text" name="searchId" value="" class="input"
                           id="searchId" onkeyup="doCompletion()"
-                          placeholder="search here.." style="padding: 5px; font-size: 16px;" />
+                          placeholder="search here.." style="padding: 5px; font-size: 16px;" size="40" />
                         <div id="auto-row">
                           <table id="complete-table" class="gridtable"
                             style="position: absolute; width: 315px;"></table>

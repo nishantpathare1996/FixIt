@@ -64,7 +64,7 @@ public class ScheduleAppointment extends HttpServlet {
 		// 	response.sendRedirect("Appointments.jsp");
 		// }
 		// else{
-			response.sendRedirect("Payment.jsp");
+			response.sendRedirect("GetAppointments");
 		// }
 	}
 }
