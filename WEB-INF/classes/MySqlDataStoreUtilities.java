@@ -17,7 +17,7 @@ public class MySqlDataStoreUtilities {
     public static String getConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/homehubsql", "root", "3306");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/homehubsql", "root", "root");
             System.out.println("Trying SQL connection.");
             message = "Successfull";
             return message;
