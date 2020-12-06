@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ page import="pojo.SalesReport"%>
+<%@ page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -37,7 +38,6 @@
     if (session.getAttribute("city")!=null){
 %>
     <body onload="init()">
-
         <!-- ======= Header ======= -->
         <!-- ======= Hero Section ======= -->
         <section id="hero" class="d-flex align-items-center justify-content-center">
@@ -230,6 +230,7 @@
       <%}
       else{%>
         <body>
+          
 
             <!-- ======= Header ======= -->
             <!-- ======= Hero Section ======= -->
