@@ -70,14 +70,14 @@
         
         <section id="team" class="team">         
              <div>
-              <form>
+              <form method="POST" action="WriteReview">
                 <h5>Writing Review for _______. </h5>
                 <p> Appointment was on ______</p>
                 <p>Category:________</p>
                 <div class="form-row">
                   <div class="form-group col-md-2">
                     <label for="inputEmail4">Review Rating : </label>
-                    <select id="inputState" class="form-control">
+                    <select id="inputState" class="form-control" name="reviewRating">
                       <option selected>Choose...</option>
                       <option>1</option>
                       <option>2</option>
@@ -90,9 +90,18 @@
                 <div class="form-row">
                 <div class="form-group col-md-5">
                   <label for="inputAddress">Write Review :</label>
-                  <textarea name='reviewtext' rows='5' cols='60' placeholder="Please write your review in brief"></textarea>
+                  <textarea name='reviewText' rows='5' cols='60' placeholder="Please write your review in brief"></textarea>
                 </div>
                </div>
+               <input type="hidden" name="appointmentId" value="34">
+               <input type="hidden" name="category" value="electrician">
+               <input type="hidden" name="professionalId" value="e3">
+               <input type="hidden" name="serviceId" value="elec23">
+               <input type="hidden" name="totalCharges" value="212">
+               <input type="hidden" name="totalCharges" value="212">    
+              
+               
+
                <div>
                 <button type="submit" class="btn btn-secondary">Submit Review</button>
               </div>

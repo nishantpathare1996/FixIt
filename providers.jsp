@@ -52,6 +52,8 @@
   
   <% 
     String category = request.getParameter("category");
+    String ccity = session.getAttribute("city").toString();
+    System.out.println("city"+ccity);
   %>
   <!-- <script>
   const queryString = window.location.search;
@@ -132,6 +134,44 @@
            <div class="form-row">
                 <div>&nbsp;&nbsp;City : ${city} </div>            
             </div>
+            <div id="map">
+              <% if (category.equals("electrician") && ccity.equals("CHI"))
+              { %>
+                 <iframe src="https://www.google.com/maps/d/u/0/embed?mid=160sWizRPgSgUsXAt6H-23PdklH8b0F4C" width="100%" height="480"></iframe>
+              <% }
+               else if(category.equals("electrician") && ccity.equals("NYC"))
+               { %>
+               <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1hm_wRTFx-Wgh6Img9aqiOE61uU3iiKNd" width="100%" height="480"></iframe>
+               <% } 
+               else if(category.equals("electrician") && ccity.equals("LA"))
+               { %>
+              <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1B0U9U8Ytq46OxYuo_H5eKgEBAGWuaSBm" width="100%" height="480"></iframe>
+              <% }
+               else if(category.equals("Plumber") && ccity.equals("CHI"))
+               { %>
+               <iframe src="https://www.google.com/maps/d/u/0/embed?mid=160sWizRPgSgUsXAt6H-23PdklH8b0F4C" width="100%" height="480"></iframe>
+               <% }
+               else if(category.equals("Plumber") && ccity.equals("NYC"))
+               { %>
+               <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1hm_wRTFx-Wgh6Img9aqiOE61uU3iiKNd" width="100%" height="480"></iframe>
+               <% }
+               else if(category.equals("Plumber") && ccity.equals("LA"))
+               { %>
+               <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1B0U9U8Ytq46OxYuo_H5eKgEBAGWuaSBm" width="100%" height="480"></iframe>
+               <% }
+               else if(category.equals("Carpenter") && ccity.equals("CHI"))
+               { %>
+               <iframe src="https://www.google.com/maps/d/u/0/embed?mid=160sWizRPgSgUsXAt6H-23PdklH8b0F4C" width="100%" height="480"></iframe>
+               <% }
+               else if(category.equals("Carpenter") && ccity.equals("NYC"))
+               { %>
+               <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1hm_wRTFx-Wgh6Img9aqiOE61uU3iiKNd" width="100%" height="480"></iframe>
+               <% }
+               else if(category.equals("Carpenter") && ccity.equals("LA"))
+               { %>
+               <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1B0U9U8Ytq46OxYuo_H5eKgEBAGWuaSBm" width="100%" height="480"></iframe>
+               <% } %>
+               </div>
             <br/>
             <br/>
              
@@ -216,12 +256,13 @@
             }
           }
         %>
-
-         
+ 
 
         </div>
 
        </div>
+      
+
     </section>
         
         <div id="toggle" style="">
@@ -259,8 +300,7 @@
       %>
           
           
-          
-
+      
         
     
 

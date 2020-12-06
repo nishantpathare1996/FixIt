@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import pojo.Review;
+import java.time.LocalDate;
 
 
 @WebServlet("/WriteReview")
@@ -15,16 +16,17 @@ import pojo.Review;
 public class WriteReview extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        HttpSession session = request.getSession(true);
         int appointmentId = Integer.parseInt(request.getParameter("appointmentId"));
-        String userId = request.getParameter("userId");
+        String userId = session.getAttribute("userId").toString();
         String category = request.getParameter("category");
         String professionalId = request.getParameter("professionalId");
         String serviceId = request.getParameter("serviceId");
-        String city = request.getParameter("city");
+        String city = session.getAttribute("city").toString();
         double totalCharges = Double.parseDouble(request.getParameter("totalCharges"));
         int reviewRating = Integer.parseInt(request.getParameter("reviewRating"));
         String reviewText = request.getParameter("reviewText");
-        String reviewDate = request.getParameter("reviewDate");
+        String reviewDate = LocalDate.now().toString();
 
         Review review = new Review(appointmentId,userId,category,professionalId,serviceId,city,totalCharges,reviewRating,reviewText,reviewDate);
         MongoDBDataStoreUtilities.insertReview(review);
