@@ -5,10 +5,7 @@ import java.util.Map;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.io.*;
-import pojo.Professional;
-import pojo.User;
-import pojo.City;
-import pojo.Appointment;
+import pojo.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -256,5 +253,22 @@ public class MySqlDataStoreUtilities {
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+
+    public static ArrayList<SalesReport> getSalesReport(){
+        ArrayList<SalesReport> salesReportList = new ArrayList<SalesReport>();
+        try {
+            getConnection();
+            Statement stmt = conn.createStatement();
+            String salesReportquery = "SELECT serviceId,serviceName,name AS city,sum(finalCharges) as totalRevenue FROM appointment NATURAL JOIN service inner join professional on appointment.professionalId=professional.id INNER JOIN city ON city.code=professional.city GROUP BY serviceId,city;";
+            ResultSet rs = stmt.executeQuery(salesReportquery);
+            while (rs.next()) {
+                SalesReport sr = new SalesReport(rs.getString("serviceId"), rs.getString("serviceName"), rs.getString("city"),rs.getDouble("totalRevenue"));
+                salesReportList.add(sr);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return salesReportList;
     }
 }

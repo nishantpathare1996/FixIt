@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+
+
+
+  
+
+
 <!DOCTYPE html>
 <html lang="en">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -49,10 +55,8 @@
 <body>
   
  <%@ include file="Header.jsp" %>
-  <%@ page import="pojo.Review" %>
-  <%@ page import="java.util.HashMap" %>
-  <%@ page import="java.util.ArrayList" %>
-
+ <%@ page import="pojo.SalesReport" %>
+ <%@ page import="java.util.ArrayList" %>
 
 
   <main id="main">
@@ -72,42 +76,34 @@
     
     <section class="inner-page">
       <div class="container">       
-        
-        <section id="team" class="team">
-          <div>
-            <h4>Customer reviews for <%=request.getParameter("name")%></h4>
-            <% String profId=request.getParameter("name");
-            HashMap<String,ArrayList<Review>> allReviews= (HashMap)request.getAttribute("reviews"); 
-              ArrayList<Review> reviews= (ArrayList)allReviews.get(profId);
-              System.out.println("printing this"+reviews);
-              %>
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Rating</th>
-                  <th scope="col">Review</th>                  
-                </tr>
-              </thead>
-              <tbody>
-                <% if(reviews!=null){ 
-                for(int i=0;i<reviews.size();i++){ %>
-                <tr>
-                  <th scope="row"><%=i+1%></th>
-                  <td width="150px"><%=reviews.get(i).getUserId()%></td>
-                  <td width="70px"><%=reviews.get(i).getReviewRating()%>/5</td>
-                  <td><%=reviews.get(i).getReviewText()%></td>
-                </tr>
-                <% }} %>
-                
-              </tbody>
-            </table>
-          </div>
-        </section><!-- End Team Section -->
-        </div>
-      </section>
-
+        <%
+  if(request.getAttribute("salesReports")!=null){
+    ArrayList<SalesReport> salesReport = (ArrayList)request.getAttribute("salesReports");
+    System.out.println(salesReport);
+    System.out.println(salesReport.get(0).getTotalRevenue());%>
+      <h2>Total Revenue Report:</h2><br>  
+    <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">ServiceId</th>
+            <th scope="col">Service Name</th>
+            <th scope="col">City</th>
+            <th scope="col">Total Revenue</th>                  
+          </tr>
+        </thead>
+        <tbody>
+          <% 
+          for(int i=0;i<salesReport.size();i++){ %>
+          <tr>
+            <td width="120px"><%=salesReport.get(i).getServiceId()%></th>
+            <td width="120px"><%=salesReport.get(i).getServiceName()%></td>
+            <td width="120px"><%=salesReport.get(i).getCity()%></td>
+            <td width="120px"><b>$<%=salesReport.get(i).getTotalRevenue()%></b></td>
+          </tr>
+          <% }} %>
+          
+        </tbody>
+      </table>
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
