@@ -155,16 +155,15 @@ public class MySqlDataStoreUtilities {
         int count=0;
         try {
             getConnection();
-            String query = "select max(appointmentId) from  appointment";
+            String query = "select * from appointment";
             PreparedStatement pst = conn.prepareStatement(query);
             ResultSet rs = pst.executeQuery();
-            if(rs != null){
-                count = Integer.parseInt(rs.toString());
+            while(rs.next()){
+                count++;
             }
         } catch (Exception e) {
             throw e;
         }
-        
         return count;
     }
 }

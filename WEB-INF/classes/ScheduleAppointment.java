@@ -22,28 +22,28 @@ public class ScheduleAppointment extends HttpServlet {
         String status = "fail";
         HttpSession session = request.getSession(true);
 
-        int appointmentId = Utilities.getTotalAppointments() + 1;
-        System.out.println(appointmentId);
+        int appointmentId = Utilities.getTotalAppointments()+1;
+        // System.out.println(appointmentId);
         String userId = session.getAttribute("userId").toString();
-        System.out.println(userId);
+        // System.out.println(userId);
         String professionalId = request.getParameter("professionalId");
-        System.out.println(professionalId);
+        // System.out.println(professionalId);
         String serviceId = request.getParameter("serviceId");
-        System.out.println(serviceId);
+        // System.out.println(serviceId);
         String street = request.getParameter("street");
-        System.out.println(street);
+        // System.out.println(street);
         String zip = request.getParameter("zip");
-        System.out.println(zip);
+        // System.out.println(zip);
         // String serviceDetails = request.getParameter("serviceDetails");
         String serviceDetails = "abcd";
         // String addInstructions = request.getParameter("addInstructions");
         String addInstructions = "abcd";
         LocalDate serviceDate = LocalDate.parse(request.getParameter("serviceDate"));
-        System.out.println(serviceDate);
+        // System.out.println(serviceDate);
         LocalTime serviceTime = LocalTime.parse(request.getParameter("serviceTime"));
-        System.out.println(serviceTime);
+        // System.out.println(serviceTime);
         String creditCard = request.getParameter("creditCard");
-        System.out.println(creditCard);
+        // System.out.println(creditCard);
 
         Appointment appointment = new Appointment(appointmentId,userId,professionalId,serviceId,street,zip,serviceDetails,addInstructions,serviceDate,serviceTime,creditCard);
 
