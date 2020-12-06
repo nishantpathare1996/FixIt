@@ -30,6 +30,10 @@ public class WriteReview extends HttpServlet {
 
         Review review = new Review(appointmentId,userId,category,professionalId,serviceId,city,totalCharges,reviewRating,reviewText,reviewDate);
         MongoDBDataStoreUtilities.insertReview(review);
+        try{
+            MySqlDataStoreUtilities.rateAppointment(appointmentId,reviewRating);
+        }catch(Exception e){
+        }
         response.sendRedirect("GetReviews?name="+professionalId);
     }
 

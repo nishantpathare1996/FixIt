@@ -228,15 +228,14 @@ public class MySqlDataStoreUtilities {
         return appointments;
     }
 
-    public static void rescheduleAppointment(int appointmentId, String professionalId, LocalDate newDate, LocalTime newTime) throws Exception {
+    public static void rescheduleAppointment(int appointmentId, LocalDate newDate, LocalTime newTime) throws Exception {
         try {
             getConnection();
-            String query = "update appointment set professionalId=?, serviceDate=?, serviceTime=? where appointmentId=?";
+            String query = "update appointment set serviceDate=?, serviceTime=? where appointmentId=?";
             PreparedStatement pst = conn.prepareStatement(query);
-            pst.setString(1, professionalId);
-            pst.setDate(2, Date.valueOf(newDate));
-            pst.setTime(3, Time.valueOf(newTime));
-            pst.setInt(4, appointmentId);
+            pst.setDate(1, Date.valueOf(newDate));
+            pst.setTime(2, Time.valueOf(newTime));
+            pst.setInt(3, appointmentId);
             pst.execute();
         } catch (Exception e) {
             System.out.println(e);
@@ -270,5 +269,18 @@ public class MySqlDataStoreUtilities {
             System.out.println(e);
         }
         return salesReportList;
+    }
+
+    public static void rateAppointment(int appointmentId, int userRating) throws Exception {
+        try {
+            getConnection();
+            String query = "update appointment set userRating=? where appointmentId=?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setInt(1, userRating);
+            pst.setInt(2, appointmentId);
+            pst.execute();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }

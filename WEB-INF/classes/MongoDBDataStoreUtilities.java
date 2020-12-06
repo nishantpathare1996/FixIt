@@ -6,8 +6,7 @@ import com.mongodb.DBObject;
 import com.mongodb.DBCursor;
 import com.mongodb.AggregationOutput;
 import java.util.*;
-import pojo.Review;
-import pojo.Bestrating;
+import pojo.*;
 
 public class MongoDBDataStoreUtilities {
     static DBCollection myReviews;
@@ -73,8 +72,8 @@ public class MongoDBDataStoreUtilities {
         }
     }
 
-    public static ArrayList < Bestrating > topProfessionals() {
-        ArrayList < Bestrating > Bestrate = new ArrayList < Bestrating > ();
+    public static ArrayList <BestProfessional> topRatedProfessionals() {
+        ArrayList < BestProfessional > bestProfessionals = new ArrayList < BestProfessional > ();
         try {
             getConnection();
             int retlimit = 5;
@@ -85,13 +84,34 @@ public class MongoDBDataStoreUtilities {
                 BasicDBObject obj = (BasicDBObject) cursor.next();
                 String prodcutnm = obj.get("professionalId").toString();
                 String rating = obj.get("reviewRating").toString();
-                Bestrating best = new Bestrating(prodcutnm, rating);
-                Bestrate.add(best);
+                BestProfessional best = new BestProfessional(prodcutnm, rating);
+                bestProfessionals.add(best);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return Bestrate;
+        return bestProfessionals;
+    }
+
+    public static ArrayList < BestService > topRatedServices() {
+        ArrayList < BestService > bestServices = new ArrayList < BestService > ();
+        try {
+            getConnection();
+            int retlimit = 5;
+            DBObject sort = new BasicDBObject();
+            sort.put("reviewRating", -1);
+            DBCursor cursor = myReviews.find().limit(retlimit).sort(sort);
+            while (cursor.hasNext()) {
+                BasicDBObject obj = (BasicDBObject) cursor.next();
+                String prodcutnm = obj.get("serviceId").toString();
+                String rating = obj.get("reviewRating").toString();
+                BestService best = new BestService(prodcutnm, rating);
+                bestServices.add(best);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return bestServices;
     }
 
     // public static ArrayList < Mostsoldzip > mostsoldZip() {

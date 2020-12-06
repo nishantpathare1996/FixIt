@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="pojo.Appointment"%>
-<%@ page import="java.util.ArrayList"%>
 
+
+
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -52,95 +53,90 @@
 <body>
   
  <%@ include file="Header.jsp" %>
+ <%@ page import="pojo.BestService"%>
+<%@ page import="pojo.BestProfessional"%>
+<%@ page import="java.util.ArrayList"%>
+
+
 
   <main id="main">
     <section class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h4>User Profile</h4>
+          <h4>Reviews</h4>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>User Profile</li>
+            <li>Reviews</li>
           </ol>
         </div>
 
       </div>
     </section><!-- End Breadcrumbs -->
     
-    <section class="inner-page">
+    <section class="inner-page" style="margin-top:-70px">
       <div class="container">       
         
-        <section id="team" class="team">         
-          <h5>Customer Name:${firstname}</h5>
-          <br/><br/>       
-          <div>
-            <h3>Appointments:</h3>
-            <br/>
-            <% ArrayList<Appointment> appointments= (ArrayList)request.getAttribute("appointments"); 
-              System.out.println(appointments);
-              %>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">A id</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Time</th>
-                    <th scope="col">Service Provider</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Status</th>                    
-                    <th scope="col">Review</th>
-                    <th scope="col">Reschedule</th>
-                    <th scope="col">Cancel</th>
-
-                  </tr>
-                </thead>
-                <tbody>
-                  <% for(int i=0;i<appointments.size();i++){
-                      %>
-                  <tr>
-                    <th scope="row"><%=i+1%></th>
-                    <td><%=appointments.get(i).getAppointmentId()%></td>
-                    <td><%=appointments.get(i).getOrderDate()%></td>
-                    <td><%=appointments.get(i).getOrderTime()%></td>
-                    <td><%=appointments.get(i).getProfessionalId()%></td>
-                    <td><%=appointments.get(i).getServiceCost()%></td>
-                    <td><%=appointments.get(i).getServiceStatus()%></td>
-
-                    <%  String serviceStatus= appointments.get(i).getServiceStatus();
-                    System.out.println(serviceStatus);
-                    if(serviceStatus.equals("pending")){ %>
-                      <td><i>Service Pending</i></td>
-                      <td><a href="#">Reschedule</a></td>
-                      <td><a href="#">Cancel</a></td>
-                    <%} else{ %>
-                    <td>
-                      <a href="writeReview.jsp?appointmentId=<%=appointments.get(i).getAppointmentId()%>&professionalId=<%=appointments.get(i).getProfessionalId()%>&serviceId=<%=appointments.get(i).getServiceId()%>&totalCharges=<%=appointments.get(i).getServiceCost()%>&orderDate=<%=appointments.get(i).getOrderDate()%>">
-                        write review
-                      </a>
-                    </td>
-                    <td><i>Reschedule</i></td>
-                    <td><i>Cancel</i></td>
-                    <% } %>
-                  </tr>
-                  <% } %>
-                  
-                </tbody>
-              </table>
-          </div>
-          <br/>
-         
-        </section>
+        <section id="team" class="team">
+            <%
+            ArrayList<BestService> bestServices = (ArrayList) request.getAttribute("bestServices");
+            ArrayList<BestProfessional> bestProfessionals = (ArrayList) request.getAttribute("bestProfessionals");
+            System.out.println(bestServices);
+            System.out.println(bestProfessionals);
+        %>
+        
+        <h4>Our Top Professionals</h4>
+        <table class="table table-hover table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Rating</th>
+                                
+              </tr>
+            </thead>
+            <tbody>
+              <% if(bestProfessionals!=null){ 
+              for(int i=0;i<bestProfessionals.size();i++){ %>
+              <tr>
+                <th width=30px"><%=i+1%></th>
+                <td width=30px"><%=bestProfessionals.get(i).getProfessionalname()%></td>
+                <td width=30px"><%=bestProfessionals.get(i).getRating()%>/5</td>
+              </tr>
+              <% }} %>
+              
+            </tbody>
+          </table>
+          <h4>Our Top Services</h4>
+          <table class="table table-hover table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Rating</th>
+                                  
+                </tr>
+              </thead>
+              <tbody>
+                <% if(bestServices!=null){ 
+                for(int i=0;i<bestServices.size();i++){ %>
+                <tr>
+                  <th width=30px"><%=i+1%></th>
+                  <td width=30px"><%=bestServices.get(i).getServicename()%></td>
+                  <td width=30px"><%=bestServices.get(i).getRating()%>/5</td>
+                </tr>
+                <% }} %>
+                
+              </tbody>
+            </table>
+        </section><!-- End Team Section -->
         </div>
       </section>
-      
-
 
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <%@ include file="Footer.jsp" %><!-- End Footer -->
+ <%@ include file="Footer.jsp" %><!-- End Footer -->
 
   <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
   <div id="preloader"></div>
