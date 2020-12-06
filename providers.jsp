@@ -142,11 +142,11 @@
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label class="control-label" for="date">Date</label>
-                 <input class="form-control" id="date" name="serviceDate" placeholder="MM/DD/YYY" type="date"/>
+                 <input class="form-control" id="date" name="serviceDate" placeholder="MM/DD/YYY" type="date" required/>
               </div>
               <div class="form-group col-md-4">
                 <label for="inputPassword4">Select Time Slot</label>
-                <select id="time" name="serviceTime" class="form-control">
+                <select id="time" name="serviceTime" class="form-control" required>
                   <option value="09:00:00">9:00 am</option>
                   <option value="10:00:00">10:00 am</option>
                   <option value="11:00:00">11:00 am</option>
@@ -178,12 +178,12 @@
         
     </section><!-- End Team Section -->
 
-    <section id="services" class="services">
+    <section id="services" class="services" style="margin-top:-150px;">
       <div class="container" data-aos="fade-up">
         <%  if(request.getAttribute("professionals") != null){ %>
         <div class="section-title">
           <h2>Services</h2>
-          <p>Choose from our available technicicans</p>
+          <p>Choose from our available <%=category%>s</p>
         </div>
         <% } %>
         <div class="row">
@@ -196,13 +196,15 @@
             System.out.println(professionalList); 
             for(int i=0;i<professionalList.size();i++){
             %>
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
-              <div class="icon-box">
-                <div class="icon"><i class="bx bx-arch"></i></div>
+            <!-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300"> -->
+            <div class="col-4 d-flex mt-2" data-aos="zoom-in" data-aos-delay="300">
+              <div class="icon-box" style="width: 300px;">
+                <!-- <div class="icon"><i class="bx bx-arch"></i></div> -->
+                <div style="margin-top:-60px;margin-bottom: 10px;"><img src="assets/img/team/team-1.jpg" class="img-thumbnail"></div>
                 <h4><a href="Payment.jsp?<%=professionalList.get(i).getId()%>"><%=professionalList.get(i).getFirstName()%>&nbsp;<%=professionalList.get(i).getLastName()%></a></h4>
                  <!-- <a href=ViewReview.jsp?name=<%=professionalList.get(i).getId()%>>View Reviews</a> -->
                  <a href=GetReviews?name=<%=professionalList.get(i).getId()%>>View Reviews</a>
-                <p>Hakunama tata yaani koi chinta nahi hai zindagi mei</p>
+              
                 <p><%=professionalList.get(i).getCity()%></p>
                 <form action="Payment.jsp">
                     <input type='hidden' name='professionalId' value='<%=professionalList.get(i).getId()%>'>
@@ -217,13 +219,13 @@
             </div>
             <%
             }
-          }
-        %>
+            %>
+        
  
 
         </div>
-        <br/>
-         <div id="map">
+       
+         <div id="map" class="mt-5">
               <% if (category.equals("electrician") && ccity.equals("CHI"))
               { %>
                  <iframe src="https://www.google.com/maps/d/u/0/embed?mid=160sWizRPgSgUsXAt6H-23PdklH8b0F4C" width="100%" height="480"></iframe>
@@ -261,13 +263,14 @@
                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1B0U9U8Ytq46OxYuo_H5eKgEBAGWuaSBm" width="100%" height="480"></iframe>
                <% } %>
                </div>
-
+              <% }
+              %>
        </div>
       
 
     </section>
         
-        <div id="toggle" style="">
+        <!-- <div id="toggle" style="">
         <h2>Our Technicians</h2>
          <table class="table table-striped">
         <tr  style="background-color: #9b870c">
@@ -284,29 +287,7 @@
         </tr>
         <tbody id="myTable">
         </tbody>
-        </table>
-        <%
-        if(request.getAttribute("professionals") != null){
-          System.out.println("Yaaaah We got professionals in providers.");
-          ArrayList<Professional> professionalList = (ArrayList) request.getAttribute("professionals");
-          System.out.println(request.getAttribute("professionals"));
-          System.out.println(professionalList); 
-          for(int i=0;i<professionalList.size();i++){
-          %>
-          <%=professionalList.get(i).getFirstName()%>
-          <%=professionalList.get(i).getLastName()%>
-
-          <%
-          }
-        }
-      %>
-          
-          
-      
-        
-    
-
-   
+        </table> -->   
 
   </main><!-- End #main -->
 

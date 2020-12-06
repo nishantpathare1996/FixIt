@@ -23,7 +23,7 @@ public class GetAppointments extends HttpServlet {
                 appointments = MySqlDataStoreUtilities.getProfessionalAppointments(session.getAttribute("userId").toString());
             }
             request.setAttribute("appointments",appointments);
-            System.out.println(appointments);
+            System.out.println("in servlet getapp"+appointments);
             request.getRequestDispatcher("Profile.jsp").forward(request,response);
         }catch (Exception e) {
             System.out.println(e.getMessage());

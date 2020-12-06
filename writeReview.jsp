@@ -55,7 +55,7 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h4>User Profile</h4>
+          <h4>Review</h4>
           <ol>
             <li><a href="index.html">Home</a></li>
             <li>User Profile</li>
@@ -71,9 +71,10 @@
         <section id="team" class="team">         
              <div>
               <form method="POST" action="WriteReview">
-                <h5>Writing Review for _______. </h5>
-                <p> Appointment was on ______</p>
-                <p>Category:________</p>
+                <h2>Review:</h2>
+                <h5> Service Provider : <%=request.getParameter("professionalId")%>. </h5>
+                <p> Appointment date : <%=request.getParameter("orderDate")%></p>
+          
                 <div class="form-row">
                   <div class="form-group col-md-2">
                     <label for="inputEmail4">Review Rating : </label>

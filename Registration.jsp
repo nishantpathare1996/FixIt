@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Inner Page - Gp Bootstrap Template</title>
+  <title>FixIt</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
@@ -29,7 +29,6 @@
   <link href="assets/css/style.css" rel="stylesheet">
   </head>
  
-
   <!-- =======================================================
   * Template Name: Gp - v2.1.0
   * Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
@@ -53,28 +52,29 @@
               session.removeAttribute("registration_msg");
           %>
           <form method="post" action="Registration" >
-            <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname" value=""><br>
+            <label for="fname">First name :</label><br>
+            <input type="text" id="fname" name="fname" value="" size="30" required><br>
 
-            <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname" value=""><br>
+            <label for="lname">Last name :</label><br>
+            <input type="text" id="lname" name="lname" value="" size="30" required><br>
 
-            <label for="userid">username</label><br>
-            <input type="text" id="username" name="userid" value=""><br>
+            <label for="userid">username:</label><br>
+            <input type="text" id="username" name="userid" value="" size="30" required><br>
 
-            <label for="email">email</label><br>
-            <input type="email" id="email" name="email" value=""><br>
+            <label for="email">email :</label><br>
+            <input type="email" id="email" name="email" value="" size="30" required><br>
 
-           <label for="contact">Contact No.</label><br>
-            <input type="text" id="contact" name="contact" value=""><br>
+           <label for="contact">Contact No. :</label><br>
+            <input type="text" id="contact" name="contact" size="30" value=""><br>
 
-            <label for="password">password</label><br>
-            <input type="password" id="password" name="password" value=""><br><br>
+            <label for="password">password :</label><br>
+            <input type="password" id="Password" name="password" value="" size="30" required><br>
 
             <label for="password">Confirm password</label><br>
-            <input type="password" id="cpassword" name="confirm" value=""><br><br>
-
-            <input type="submit" value="Submit">
+            <input type="password" id="confirm_password" name="confirm" value="" size="30" required><br>
+            <br/>
+            <input type="submit" value="Submit" >
+            
           </form> 
         <a href="Login.jsp">Click here to Login</a>
       </div>
