@@ -59,6 +59,7 @@
                           <a class="dropdown-item" href="SetCity?city=CHI" value="CHI">Chicago</a>
                           <a class="dropdown-item" href="SetCity?city=NYC" value="NYC">New York</a>
                           <a class="dropdown-item" href="SetCity?city=LA" value="LA">Los Angeles</a>
+                          
                         </div>
                       </div>
                     </div>
@@ -230,13 +231,13 @@
                     <h2>Where do you need a service?</h2>>
                     <h2>
                       <div class="row">
-                        <div class="col-3">
+                        
+                        <div class="col-4 mx-auto">
                           <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <span  id="selected">
+                              
                               Select City
-                              </span>
-                            </button>
+                              </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                               <a class="dropdown-item" href="SetCity?city=CHI" value="CHI">Chicago</a>
                               <a class="dropdown-item" href="SetCity?city=NYC" value="NYC">New York</a>
@@ -244,11 +245,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-9 input-group md-form form-sm form-1 pl-0">
-                          <div class="input-group-prepend">
-                            <!-- <span class="input-group-text cyan lighten-2" id="basic-text1"><i class="fas fa-search text-white" aria-hidden="true"></i></span> -->
-                          </div>
-                        </div>
+                        
                       </div>
                     </h2>
                   </div>
