@@ -102,8 +102,8 @@
                   <tr>
                     <th scope="row"><%=i+1%></th>
                     <td><%=appointments.get(i).getAppointmentId()%></td>
-                    <td><%=appointments.get(i).getOrderDate()%></td>
-                    <td><%=appointments.get(i).getOrderTime()%></td>
+                    <td><%=appointments.get(i).getServiceDate()%></td>
+                    <td><%=appointments.get(i).getServiceTime()%></td>
                     <td><%=appointments.get(i).getProfessionalId()%></td>
                     <td><%=appointments.get(i).getServiceCost()%></td>
                     <td><%=appointments.get(i).getServiceStatus()%></td>
@@ -112,8 +112,8 @@
                     System.out.println(serviceStatus);
                     if(serviceStatus.equals("pending")){ %>
                       <td><i>Service Pending</i></td>
-                      <!-- <td><a href="#">Reschedule</a></td> --><td><a href="Reschedule.jsp?orderDate=<%=appointments.get(i).getOrderDate()%>&orderTime=<%=appointments.get(i).getOrderTime()%>&appointmentId=<%=appointments.get(i).getAppointmentId()%>&AppointmentId=<%=appointments.get(i).getAppointmentId()%>">Reschedule</a></td>
-                      <td><a href="#">Cancel</a></td>
+                      <!-- <td><a href="#">Reschedule</a></td> --><td><a href="Reschedule.jsp?serviceDate=<%=appointments.get(i).getServiceDate()%>&serviceTime=<%=appointments.get(i).getServiceTime()%>&appointmentId=<%=appointments.get(i).getAppointmentId()%>&AppointmentId=<%=appointments.get(i).getAppointmentId()%>">Reschedule</a></td>
+                      <td><a href="CancelAppointment?appointmentId=<%=appointments.get(i).getAppointmentId()%>">Cancel</a></td>
                     <%} else{ %>
                     <td>
                       <a href="writeReview.jsp?appointmentId=<%=appointments.get(i).getAppointmentId()%>&professionalId=<%=appointments.get(i).getProfessionalId()%>&serviceId=<%=appointments.get(i).getServiceId()%>&totalCharges=<%=appointments.get(i).getServiceCost()%>&orderDate=<%=appointments.get(i).getOrderDate()%>">

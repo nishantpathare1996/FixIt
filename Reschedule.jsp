@@ -83,19 +83,20 @@
         <section id="team" class="team" style="margin-top: -70px;">
           <div>
               <h4>Reschedule Appointment</h4>
-              <p> Your Previous appointment Date was on <%=request.getParameter("orderDate")%>  </p>
-              <p> Your Previous appointment Time was on <%=request.getParameter("orderTime")%></p>
+              <p> Your Previous appointment Date was on <%=request.getParameter("serviceDate")%>  </p>
+              <p> Your Previous appointment Time was on <%=request.getParameter("serviceTime")%></p>
               <p> Appointment Id: <%=request.getParameter("AppointmentId")%></p>
 
           </div>
           <br>
           <h4>Schedule New Date</h4>
-          <form>
+          <form method="POST" action="RescheduleAppointment">
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label class="control-label" for="date">Date</label>
                  <input class="form-control" id="date" name="serviceDate" placeholder="MM/DD/YYY" type="date" required/>
-              </div>
+                <input type="hidden" value='<%=request.getParameter("AppointmentId")%>' name="appointmentId" >
+                </div>
               <div class="form-group col-md-4">
                 <label for="inputPassword4">Select Time Slot</label>
                 <select id="time" name="serviceTime" class="form-control" required>
