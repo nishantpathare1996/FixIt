@@ -17,13 +17,29 @@ public class GetSalesReport extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        ArrayList<SalesReport> cityvisesalesReports = new ArrayList<SalesReport>();
+        HttpSession session = request.getSession(true);
+        try {
+            cityvisesalesReports = MySqlDataStoreUtilities.getSalesReport();
+            request.setAttribute("cityvisesalesReports",cityvisesalesReports);
+            System.out.println("in servlet salesReport"+cityvisesalesReports);
+            request.getRequestDispatcher("RevenueReport.jsp").forward(request,response);
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+        protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("application/JSON");
+        response.setCharacterEncoding("UTF-8");
         ArrayList<SalesReport> salesReports = new ArrayList<SalesReport>();
         HttpSession session = request.getSession(true);
         try {
-            salesReports = MySqlDataStoreUtilities.getSalesReport();
-            request.setAttribute("salesReports",salesReports);
+            salesReports = MySqlDataStoreUtilities.getSalesReportforChart();
             System.out.println("in servlet salesReport"+salesReports);
-            request.getRequestDispatcher("RevenueReport.jsp").forward(request,response);
+            String salesReportJson = new Gson().toJson(salesReports);
+            response.getWriter().write(salesReportJson);
         }catch (Exception e) {
             System.out.println(e.getMessage());
         }

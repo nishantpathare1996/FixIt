@@ -1,11 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-
-
-
-  
-
-
 <!DOCTYPE html>
 <html lang="en">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -50,27 +44,21 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
-
-
-
  
 
 <body>
   
  <%@ include file="Header.jsp" %>
- <%@ page import="pojo.SalesReport" %>
- <%@ page import="java.util.ArrayList" %>
-
 
   <main id="main">
     <section class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h4>Reviews</h4>
+          <h4></h4>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>Reviews</li>
+            <li>Service Providers</li>
           </ol>
         </div>
 
@@ -78,39 +66,68 @@
     </section><!-- End Breadcrumbs -->
     
     <section class="inner-page">
-      <div class="container">
-        <h3><button id='btnGetChartData'>View Revenue Chart</h3>
-          <div id='chart_div'></div>
-        <%
-  if(request.getAttribute("cityvisesalesReports")!=null){
-    ArrayList<SalesReport> salesReport = (ArrayList)request.getAttribute("cityvisesalesReports");
-    System.out.println(salesReport);
-    System.out.println(salesReport.get(0).getTotalRevenue());%>
-      <h2>Total Revenue Report:</h2><br>  
-    <table class="table table-hover table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">Service Name</th>
-            <th scope="col">City</th>
-            <th scope="col">Total Revenue</th>                  
-          </tr>
-        </thead>
-        <tbody>
-          <% 
-          for(int i=0;i<salesReport.size();i++){ %>
-          <tr>
-            <td width="120px"><%=salesReport.get(i).getServiceName()%></td>
-            <td width="120px"><%=salesReport.get(i).getCity()%></td>
-            <td width="120px"><b>$<%=salesReport.get(i).getTotalRevenue()%></b></td>
-          </tr>
-          <% }} %>
-          
-        </tbody>
-      </table>
+      <div class="container">       
+       <!--  <div>
+          <h3>Order Summary</h3>
+          <p><b>Name: ${firstname}</b></p>
+          <p><b>Price:</b></p>
+
+          <p><b>Time Slot: <%=request.getParameter("time")%> </b></p>
+          <p><b>Date: <%=request.getParameter("date")%> </b></p>
+          <p><b>Service Provider: <%=request.getParameter("providerName")%></b></p>
+          <p><b>City: ${city}</b></p>
+        </div> -->
+        
+
+
+        <section id="team" class="team" style="margin-top: -70px;">
+          <div>
+              <h4>Reschedule Appointment</h4>
+              <p> Your Previous appointment Date was on <%=request.getParameter("orderDate")%>  </p>
+              <p> Your Previous appointment Time was on <%=request.getParameter("orderTime")%></p>
+              <p> Appointment Id: <%=request.getParameter("AppointmentId")%></p>
+
+          </div>
+          <br>
+          <h4>Schedule New Date</h4>
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label class="control-label" for="date">Date</label>
+                 <input class="form-control" id="date" name="serviceDate" placeholder="MM/DD/YYY" type="date" required/>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputPassword4">Select Time Slot</label>
+                <select id="time" name="serviceTime" class="form-control" required>
+                  <option value="09:00:00">9:00 am</option>
+                  <option value="10:00:00">10:00 am</option>
+                  <option value="11:00:00">11:00 am</option>
+                  <option value="12:00:00">12:00 pm</option>
+                  <option value="13:00:00">1:00 pm</option>
+                  <option value="14:00:00">2:00 pm</option>
+                  <option value="15:00:00">3:00 pm</option>
+                  <option value="16:00:00">4:00 pm</option>
+                  <option value="17:00:00">5:00 pm</option>
+                </select>
+                
+               <!-- <input type="time" class="form-control" id="inputPassword4" placeholder="2 am"> -->
+              </div> 
+            </div>
+            <p>please select date and time slot</p>
+            <div>
+            <button type="submit" class="btn btn-secondary">Reschedule</button>
+        </div>
+          </form>
+
+          </section><!-- End Team Section -->
+        </div>
+      </section>
+
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
- <%@ include file="Footer.jsp" %><!-- End Footer -->
+  <footer id="footer">
+  </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
   <div id="preloader"></div>
@@ -129,8 +146,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script type='text/javascript' src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type='text/javascript' src='SalesReport.js'></script>
+ 
 </body>
 
 </html>

@@ -112,7 +112,7 @@
                     System.out.println(serviceStatus);
                     if(serviceStatus.equals("pending")){ %>
                       <td><i>Service Pending</i></td>
-                      <td><a href="#">Reschedule</a></td>
+                      <!-- <td><a href="#">Reschedule</a></td> --><td><a href="Reschedule.jsp?orderDate=<%=appointments.get(i).getOrderDate()%>&orderTime=<%=appointments.get(i).getOrderTime()%>&appointmentId=<%=appointments.get(i).getAppointmentId()%>&AppointmentId=<%=appointments.get(i).getAppointmentId()%>">Reschedule</a></td>
                       <td><a href="#">Cancel</a></td>
                     <%} else{ %>
                     <td>

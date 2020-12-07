@@ -6,10 +6,16 @@ public class SalesReport{
 	private String city;
 	private double totalRevenue;
 	
-	public SalesReport(String serviceId, String serviceName,String city,double totalRevenue){
-		this.serviceId = serviceId;
+	public SalesReport(String serviceName,String city,double totalRevenue){
+		// this.serviceId = serviceId;
 		this.serviceName=serviceName;
 		this.city=city;
+		this.totalRevenue = totalRevenue;
+	}
+
+	public SalesReport(String serviceName,double totalRevenue){
+		// this.serviceId = serviceId;
+		this.serviceName=serviceName;
 		this.totalRevenue = totalRevenue;
 	}
 

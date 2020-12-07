@@ -259,10 +259,27 @@ public class MySqlDataStoreUtilities {
         try {
             getConnection();
             Statement stmt = conn.createStatement();
-            String salesReportquery = "SELECT serviceId,serviceName,name AS city,sum(finalCharges) as totalRevenue FROM appointment NATURAL JOIN service inner join professional on appointment.professionalId=professional.id INNER JOIN city ON city.code=professional.city GROUP BY serviceId,city;";
+            String salesReportquery = "SELECT serviceName,name,sum(finalCharges) as totalRevenue FROM appointment INNER JOIN service ON appointment.serviceId = service.serviceId inner join professional on appointment.professionalId=professional.id INNER JOIN city ON city.code=professional.city GROUP BY serviceName,name;";
             ResultSet rs = stmt.executeQuery(salesReportquery);
             while (rs.next()) {
-                SalesReport sr = new SalesReport(rs.getString("serviceId"), rs.getString("serviceName"), rs.getString("city"),rs.getDouble("totalRevenue"));
+                SalesReport sr = new SalesReport(rs.getString("serviceName"), rs.getString("name"),rs.getDouble("totalRevenue"));
+                salesReportList.add(sr);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return salesReportList;
+    }
+
+        public static ArrayList<SalesReport> getSalesReportforChart(){
+        ArrayList<SalesReport> salesReportList = new ArrayList<SalesReport>();
+        try {
+            getConnection();
+            Statement stmt = conn.createStatement();
+            String salesReportquery = "SELECT serviceName,sum(finalCharges) as totalRevenue FROM appointment INNER JOIN service ON appointment.serviceId = service.serviceId inner join professional on appointment.professionalId=professional.id GROUP BY serviceName;";
+            ResultSet rs = stmt.executeQuery(salesReportquery);
+            while (rs.next()) {
+                SalesReport sr = new SalesReport(rs.getString("serviceName"), rs.getDouble("totalRevenue"));
                 salesReportList.add(sr);
             }
         } catch (Exception e) {
