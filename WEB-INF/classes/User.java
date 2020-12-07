@@ -30,6 +30,15 @@ public class User {
         this.phone = phone;
 	}
 
+	public User(String userId,String fn,String ln, String email,String phone) {
+		System.out.println("I am callled................");
+        this.userId = userId;
+		this.firstName = fn;
+        this.lastName = ln;
+        this.email = email;
+        this.phone = phone;
+	}
+
 	public String getUserId() {
 		return userId;
 	}

@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="pojo.Appointment"%>
+<%@ page import="pojo.Professional"%>
+<%@ page import="global.*"%>
 <%@ page import="java.util.ArrayList"%>
-
+<%@ page import="java.util.HashMap"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -77,7 +79,8 @@
           <div>
             <h3>Appointments:</h3>
             <br/>
-            <% ArrayList<Appointment> appointments= (ArrayList)request.getAttribute("appointments"); 
+            <% ArrayList<Appointment> appointments= (ArrayList)request.getAttribute("appointments");
+              HashMap<String,Professional> prohm = ProfessionalsHashMap.hm;
               System.out.println(appointments);
               %>
               <table class="table">
@@ -102,9 +105,11 @@
                   <tr>
                     <th scope="row"><%=i+1%></th>
                     <td><%=appointments.get(i).getAppointmentId()%></td>
-                    <td><%=appointments.get(i).getOrderDate()%></td>
-                    <td><%=appointments.get(i).getOrderTime()%></td>
-                    <td><%=appointments.get(i).getProfessionalId()%></td>
+                    <td><%=appointments.get(i).getServiceDate()%></td>
+                    <td><%=appointments.get(i).getServiceTime()%></td>
+                    <% String profName = prohm.get(appointments.get(i).getProfessionalId()).getFirstName(); %>
+                    <% profName += " "+prohm.get(appointments.get(i).getProfessionalId()).getLastName(); %>
+                    <td><%=profName%></td>
                     <td><%=appointments.get(i).getServiceCost()%></td>
                     <td><%=appointments.get(i).getServiceStatus()%></td>
 
@@ -112,8 +117,8 @@
                     System.out.println(serviceStatus);
                     if(serviceStatus.equals("pending")){ %>
                       <td><i>Service Pending</i></td>
-                      <td><a href="#">Reschedule</a></td>
-                      <td><a href="#">Cancel</a></td>
+                      <!-- <td><a href="#">Reschedule</a></td> --><td><a href="Reschedule.jsp?serviceDate=<%=appointments.get(i).getServiceDate()%>&serviceTime=<%=appointments.get(i).getServiceTime()%>&appointmentId=<%=appointments.get(i).getAppointmentId()%>&AppointmentId=<%=appointments.get(i).getAppointmentId()%>">Reschedule</a></td>
+                      <td><a href="CancelAppointment?appointmentId=<%=appointments.get(i).getAppointmentId()%>">Cancel</a></td>
                     <%} else{ %>
                     <td>
                       <a href="writeReview.jsp?appointmentId=<%=appointments.get(i).getAppointmentId()%>&professionalId=<%=appointments.get(i).getProfessionalId()%>&serviceId=<%=appointments.get(i).getServiceId()%>&totalCharges=<%=appointments.get(i).getServiceCost()%>&orderDate=<%=appointments.get(i).getOrderDate()%>">
@@ -130,6 +135,62 @@
               </table>
           </div>
           <br/>
+          <div >
+            <h3>Recommended Professionls</h3>
+            <div class="row" style="margin-top:70px;">          
+                <div class="col-4 d-flex mt-2" data-aos="zoom-in" data-aos-delay="300">
+                  <div class="icon-box" style="width: 300px;">
+                    <div style="margin-top:-60px;margin-bottom: 10px;"><img src="assets/img/team/team-1.jpg" class="img-thumbnail"></div>
+                    <h4><a href="Payment.jsp?e2">James Blunt</a></h4>
+                     <a href=GetReviews?name=e2>View Reviews</a>
+                    <p>NYC</p>
+                    <form action="Payment.jsp">
+                        <input type='hidden' name='professionalId' value='e2'>
+                        <input type='hidden' name='serviceDate' value='2020-12-10'>
+                        <input type='hidden' name='serviceTime' value='12:24'>
+                        <input type='hidden' name='providerName' value='James Blunt'>
+                        <input type='hidden' name='category' value='Electrician'>
+                        
+                        <button type="submit" class="btn btn-secondary">Select</button>
+                    </form>
+                  </div>
+                </div>
+                <div class="col-4 d-flex mt-2" data-aos="zoom-in" data-aos-delay="300">
+                  <div class="icon-box" style="width: 300px;">
+                    <div style="margin-top:-60px;margin-bottom: 10px;"><img src="assets/img/team/team-1.jpg" class="img-thumbnail"></div>
+                    <h4><a href="Payment.jsp?e3">Chester Bennington</a></h4>
+                     <a href=GetReviews?name=e3>View Reviews</a>
+                    <p>NYC</p>
+                    <form action="Payment.jsp">
+                        <input type='hidden' name='professionalId' value='e3'>
+                        <input type='hidden' name='serviceDate' value='2020-12-10'>
+                        <input type='hidden' name='serviceTime' value='12:24'>
+                        <input type='hidden' name='providerName' value='Chester Bennington'>
+                        <input type='hidden' name='category' value='Electrician'>
+                        
+                        <button type="submit" class="btn btn-secondary">Select</button>
+                    </form>
+                  </div>
+                </div>
+                 <div class="col-4 d-flex mt-2" data-aos="zoom-in" data-aos-delay="300">
+                  <div class="icon-box" style="width: 300px;">
+                    <div style="margin-top:-60px;margin-bottom: 10px;"><img src="assets/img/team/team-1.jpg" class="img-thumbnail"></div>
+                    <h4><a href="Payment.jsp?e5">Katy Perry</a></h4>
+                     <a href=GetReviews?name=e5>View Reviews</a>
+                    <p>NYC</p>
+                    <form action="Payment.jsp">
+                        <input type='hidden' name='professionalId' value='e5'>
+                        <input type='hidden' name='serviceDate' value='2020-12-10'>
+                        <input type='hidden' name='serviceTime' value='12:24'>
+                        <input type='hidden' name='providerName' value='Katy Perry'>
+                        <input type='hidden' name='category' value='Electrician'>
+                        
+                        <button type="submit" class="btn btn-secondary">Select</button>
+                    </form>
+                  </div>
+                </div>
+            </div>
+            </div>
          
         </section>
         </div>

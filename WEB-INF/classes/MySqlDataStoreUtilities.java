@@ -8,6 +8,7 @@ import java.io.*;
 import pojo.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import global.*;
 
 public class MySqlDataStoreUtilities {
     static Connection conn = null;
@@ -116,6 +117,51 @@ public class MySqlDataStoreUtilities {
         return professionals;
     }
 
+    public static void loadAllProfessionals() throws Exception {
+        try {
+            getConnection();
+            String query = "select * from  professional";
+            PreparedStatement pst = conn.prepareStatement(query);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Professional professional = new Professional(rs.getString("id"), rs.getString("firstName"), rs.getString("middleName"), rs.getString("lastName"), rs.getString("city"), rs.getString("email"), rs.getString("category"), rs.getString("phone"), rs.getString("street"), rs.getString("zip"), rs.getDouble("latitude"), rs.getDouble("longitude"), rs.getString("image"));
+                ProfessionalsHashMap.hm.put(rs.getString("id"),professional);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void loadAllServices() throws Exception {
+        try {
+            getConnection();
+            String query = "select * from  service;";
+            PreparedStatement pst = conn.prepareStatement(query);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Service service = new Service(rs.getString("serviceId"), rs.getString("serviceName"), rs.getString("category"), rs.getDouble("serviceCost"),rs.getDouble("discount"));
+                ServicesHashMap.hm.put(rs.getString("serviceId"),service);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void loadAllCustomers() throws Exception {
+        try {
+            getConnection();
+            String query = "select * from user where userType='customer';";
+            PreparedStatement pst = conn.prepareStatement(query);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                User user = new User(rs.getString("userId"), rs.getString("firstName"), rs.getString("lastName"), rs.getString("email"), rs.getString("phone"));
+                CustomersHashMap.hm.put(rs.getString("userId"),user);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
     public static void scheduleAppointment(Appointment appointment) throws SQLException {
         try {
             getConnection();
@@ -164,6 +210,7 @@ public class MySqlDataStoreUtilities {
         } catch (Exception e) {
             throw e;
         }
+        System.out.println(count);
         return count;
     }
 
@@ -259,10 +306,27 @@ public class MySqlDataStoreUtilities {
         try {
             getConnection();
             Statement stmt = conn.createStatement();
-            String salesReportquery = "SELECT serviceId,serviceName,name AS city,sum(finalCharges) as totalRevenue FROM appointment NATURAL JOIN service inner join professional on appointment.professionalId=professional.id INNER JOIN city ON city.code=professional.city GROUP BY serviceId,city;";
+            String salesReportquery = "SELECT serviceName,name,sum(finalCharges) as totalRevenue FROM appointment INNER JOIN service ON appointment.serviceId = service.serviceId inner join professional on appointment.professionalId=professional.id INNER JOIN city ON city.code=professional.city GROUP BY serviceName,name;";
             ResultSet rs = stmt.executeQuery(salesReportquery);
             while (rs.next()) {
-                SalesReport sr = new SalesReport(rs.getString("serviceId"), rs.getString("serviceName"), rs.getString("city"),rs.getDouble("totalRevenue"));
+                SalesReport sr = new SalesReport(rs.getString("serviceName"), rs.getString("name"),rs.getDouble("totalRevenue"));
+                salesReportList.add(sr);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return salesReportList;
+    }
+
+        public static ArrayList<SalesReport> getSalesReportforChart(){
+        ArrayList<SalesReport> salesReportList = new ArrayList<SalesReport>();
+        try {
+            getConnection();
+            Statement stmt = conn.createStatement();
+            String salesReportquery = "SELECT serviceName,sum(finalCharges) as totalRevenue FROM appointment INNER JOIN service ON appointment.serviceId = service.serviceId inner join professional on appointment.professionalId=professional.id GROUP BY serviceName;";
+            ResultSet rs = stmt.executeQuery(salesReportquery);
+            while (rs.next()) {
+                SalesReport sr = new SalesReport(rs.getString("serviceName"), rs.getDouble("totalRevenue"));
                 salesReportList.add(sr);
             }
         } catch (Exception e) {
@@ -283,4 +347,6 @@ public class MySqlDataStoreUtilities {
             System.out.println(e);
         }
     }
+
+
 }

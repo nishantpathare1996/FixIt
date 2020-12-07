@@ -50,6 +50,9 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+
+
+
  
 
 <body>
@@ -75,17 +78,18 @@
     </section><!-- End Breadcrumbs -->
     
     <section class="inner-page">
-      <div class="container">       
+      <div class="container">
+        <h3><button id='btnGetChartData'>View Revenue Chart</h3>
+          <div id='chart_div'></div>
         <%
-  if(request.getAttribute("salesReports")!=null){
-    ArrayList<SalesReport> salesReport = (ArrayList)request.getAttribute("salesReports");
+  if(request.getAttribute("cityvisesalesReports")!=null){
+    ArrayList<SalesReport> salesReport = (ArrayList)request.getAttribute("cityvisesalesReports");
     System.out.println(salesReport);
     System.out.println(salesReport.get(0).getTotalRevenue());%>
       <h2>Total Revenue Report:</h2><br>  
     <table class="table table-hover table-bordered">
         <thead>
           <tr>
-            <th scope="col">ServiceId</th>
             <th scope="col">Service Name</th>
             <th scope="col">City</th>
             <th scope="col">Total Revenue</th>                  
@@ -95,7 +99,6 @@
           <% 
           for(int i=0;i<salesReport.size();i++){ %>
           <tr>
-            <td width="120px"><%=salesReport.get(i).getServiceId()%></th>
             <td width="120px"><%=salesReport.get(i).getServiceName()%></td>
             <td width="120px"><%=salesReport.get(i).getCity()%></td>
             <td width="120px"><b>$<%=salesReport.get(i).getTotalRevenue()%></b></td>
@@ -126,7 +129,8 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
- 
+  <script type='text/javascript' src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type='text/javascript' src='SalesReport.js'></script>
 </body>
 
 </html>

@@ -17,8 +17,10 @@ public class SetCity extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
 		String cityCode = request.getParameter("city");
+		String cityName = request.getParameter("cityName");
         HttpSession session = request.getSession(true);
         session.setAttribute("city", cityCode);
+		session.setAttribute("cityName", cityName);
 		System.out.println("Set city "+session.getAttribute("city")+" in session.");
         response.sendRedirect("Home.jsp");
         return;

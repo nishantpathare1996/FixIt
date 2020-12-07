@@ -118,7 +118,7 @@
     <section id="team" class="team">
       <div class="containe" data-aos="fade-up" style="margin-top: -70px">
         <div class="section-title">
-          <p>Electricians</p> 
+          <p><%=category%></p> 
 
           <h2>Repairs and Service</h2>
 
@@ -132,13 +132,87 @@
                 <div>&nbsp;&nbsp;Name : ${firstname} </div>            
             </div>
            <div class="form-row">
-                <div>&nbsp;&nbsp;City : ${city} </div>            
+                <div>&nbsp;&nbsp;City : ${cityName} </div>            
             </div>
            
             <br/>
             <br/>
              
-            </div>
+            <% if(category.equals("Electrician")){ %>
+              <div class="form-group col-md-4">
+                  <label for="inputPassword4">Type Of Service</label>
+                  <select id="time" name="serviceId" class="form-control" required>
+                    <option value="elec1">Repairs and fixes</option>
+                    <option value="elec2">Electricity Breakdown</option>
+                    <option value="elec3">Electrical wiring</option>
+                    <option value="elec4">Installing Service</option>
+                   
+                  </select>
+                  
+                </div> 
+                <% } else if(category.equals("Plumber")){ %>
+              <div class="form-group col-md-4">
+                  <label for="inputPassword4">Type Of Service</label>
+                  <select id="time" name="serviceId" class="form-control" required>
+                    <option value="plum1">Pipe/Tap Fitting</option>
+                    <option value="plum2">Water Leakages</option>
+                    <option value="plum3">Repairs and fixes</option>
+                    <option value="plum4">Installing Service</option>
+                   
+                  </select>
+                  
+                </div> 
+                <% } else if(category.equals("PestControl")){ %>
+              <div class="form-group col-md-4">
+                  <label for="inputPassword4">Type Of Service</label>
+                  <select id="time" name="serviceId" class="form-control" required>
+                    <option value="pest1">Cockroach and ants</option>
+                    <option value="pest2">Bed Bugs</option>
+                    <option value="pest3">Termites</option>
+                    <option value="pest4">Mosquitoes</option>                 
+                  </select>
+                </div> 
+                <% } else if(category.equals("Carpenter")){ %>
+              <div class="form-group col-md-4">
+                  <label for="inputPassword4">Type Of Service</label>
+                  <select id="time" name="serviceId" class="form-control" required>
+                    <option value="carp1">Repairs and fixes</option>
+                    <option value="carp2">New furniture</option>
+                                   
+                  </select>
+                </div> 
+                 <% } else if(category.equals("Appliance")){ %>
+              <div class="form-group col-md-4">
+                  <label for="inputPassword4">Type Of Service</label>
+                  <select id="time" name="serviceId" class="form-control" required>
+                    <option value="app1">AC</option>
+                    <option value="app2">Microwave</option>
+                    <option value="app3">Refrigerator</option>
+                    <option value="app4">Washing Machine</option>                                 
+                  </select>
+                </div> 
+                 <% } else if(category.equals("Cleaning")){ %>
+              <div class="form-group col-md-4">
+                  <label for="inputPassword4">Type Of Service</label>
+                  <select id="time" name="serviceId" class="form-control" required>
+                    <option value="clean1">Car</option>
+                    <option value="clean2">Bathroom</option>
+                    <option value="clean3">Kitchen</option>
+                    <option value="clean4">Carpet</option>                                 
+                  </select>
+                </div> 
+                 <% } else if(category.equals("Painter")){ %>
+              <div class="form-group col-md-4">
+                  <label for="inputPassword4">Type Of Service</label>
+                  <select id="time" name="serviceId" class="form-control" required>
+                    <option value="paint1">Paint House Interior</option>
+                    <option value="paint2">Paint House Exterior</option>
+                                                  
+                  </select>
+                </div> 
+  
+                <%}%>
+  
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label class="control-label" for="date">Date</label>

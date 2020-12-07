@@ -49,24 +49,16 @@
 <body>
   
  <%@ include file="Header.jsp" %>
-  <%@ page import="pojo.Review" %>
-  <%@ page import="java.util.HashMap" %>
-  <%@ page import="java.util.ArrayList" %>
-  <%@ page import="global.*"%>
-  <%@ page import="pojo.User"%>
-  <%@ page import="pojo.Professional"%>
-
-
 
   <main id="main">
     <section class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h4>Reviews</h4>
+          <h4></h4>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>Reviews</li>
+            <li>Service Providers</li>
           </ol>
         </div>
 
@@ -75,54 +67,68 @@
     
     <section class="inner-page">
       <div class="container">       
+       <!--  <div>
+          <h3>Order Summary</h3>
+          <p><b>Name: ${firstname}</b></p>
+          <p><b>Price:</b></p>
+
+          <p><b>Time Slot: <%=request.getParameter("time")%> </b></p>
+          <p><b>Date: <%=request.getParameter("date")%> </b></p>
+          <p><b>Service Provider: <%=request.getParameter("providerName")%></b></p>
+          <p><b>City: ${city}</b></p>
+        </div> -->
         
-        <section id="team" class="team">
+
+
+        <section id="team" class="team" style="margin-top: -70px;">
           <div>
-            <%HashMap<String,Professional> prohm = ProfessionalsHashMap.hm;
-                      Professional prf = prohm.get(request.getParameter("name"));
-                      String prfname = prf.getFirstName()+" "+prf.getLastName();%>
-            <h4>Customer reviews for <%=prfname%></h4>
-            <% String profId=request.getParameter("name");
-            HashMap<String,ArrayList<Review>> allReviews= (HashMap)request.getAttribute("reviews");
-              
-              ArrayList<Review> reviews= (ArrayList)allReviews.get(profId);
-              System.out.println("printing this"+reviews);
-              %>
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Rating</th>
-                  <th scope="col">Review</th>                  
-                </tr>
-              </thead>
-              <tbody>
-                <% if(reviews!=null){ 
-                for(int i=0;i<reviews.size();i++){ %>
-                <tr>
-                  <th scope="row"><%=i+1%></th>
-                  <%HashMap<String,User> custhm = CustomersHashMap.hm;%>
-                    
-                  <% User cust = custhm.get(reviews.get(i).getUserId()); %>
-                  <% String custName = cust.getFirstName()+" "+cust.getLastName(); %>
-                  <td width="150px"><%=custName%></td>
-                  <td width="70px"><%=reviews.get(i).getReviewRating()%>/5</td>
-                  <td><%=reviews.get(i).getReviewText()%></td>
-                </tr>
-                <% }} %>
-                
-              </tbody>
-            </table>
+              <h4>Reschedule Appointment</h4>
+              <p> Your Previous appointment Date was on <%=request.getParameter("serviceDate")%>  </p>
+              <p> Your Previous appointment Time was on <%=request.getParameter("serviceTime")%></p>
+              <p> Appointment Id: <%=request.getParameter("AppointmentId")%></p>
+
           </div>
-        </section><!-- End Team Section -->
+          <br>
+          <h4>Schedule New Date</h4>
+          <form method="POST" action="RescheduleAppointment">
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label class="control-label" for="date">Date</label>
+                 <input class="form-control" id="date" name="serviceDate" placeholder="MM/DD/YYY" type="date" required/>
+                <input type="hidden" value='<%=request.getParameter("AppointmentId")%>' name="appointmentId" >
+                </div>
+              <div class="form-group col-md-4">
+                <label for="inputPassword4">Select Time Slot</label>
+                <select id="time" name="serviceTime" class="form-control" required>
+                  <option value="09:00:00">9:00 am</option>
+                  <option value="10:00:00">10:00 am</option>
+                  <option value="11:00:00">11:00 am</option>
+                  <option value="12:00:00">12:00 pm</option>
+                  <option value="13:00:00">1:00 pm</option>
+                  <option value="14:00:00">2:00 pm</option>
+                  <option value="15:00:00">3:00 pm</option>
+                  <option value="16:00:00">4:00 pm</option>
+                  <option value="17:00:00">5:00 pm</option>
+                </select>
+                
+               <!-- <input type="time" class="form-control" id="inputPassword4" placeholder="2 am"> -->
+              </div> 
+            </div>
+            <p>please select date and time slot</p>
+            <div>
+            <button type="submit" class="btn btn-secondary">Reschedule</button>
+        </div>
+          </form>
+
+          </section><!-- End Team Section -->
         </div>
       </section>
 
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
- <%@ include file="Footer.jsp" %><!-- End Footer -->
+  <footer id="footer">
+  </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
   <div id="preloader"></div>
