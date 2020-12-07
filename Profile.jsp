@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="pojo.Appointment"%>
+<%@ page import="pojo.Professional"%>
+<%@ page import="global.*"%>
 <%@ page import="java.util.ArrayList"%>
-
+<%@ page import="java.util.HashMap"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -77,7 +79,8 @@
           <div>
             <h3>Appointments:</h3>
             <br/>
-            <% ArrayList<Appointment> appointments= (ArrayList)request.getAttribute("appointments"); 
+            <% ArrayList<Appointment> appointments= (ArrayList)request.getAttribute("appointments");
+              HashMap<String,Professional> prohm = ProfessionalsHashMap.hm;
               System.out.println(appointments);
               %>
               <table class="table">
@@ -104,7 +107,9 @@
                     <td><%=appointments.get(i).getAppointmentId()%></td>
                     <td><%=appointments.get(i).getServiceDate()%></td>
                     <td><%=appointments.get(i).getServiceTime()%></td>
-                    <td><%=appointments.get(i).getProfessionalId()%></td>
+                    <% String profName = prohm.get(appointments.get(i).getProfessionalId()).getFirstName(); %>
+                    <% profName += " "+prohm.get(appointments.get(i).getProfessionalId()).getLastName(); %>
+                    <td><%=profName%></td>
                     <td><%=appointments.get(i).getServiceCost()%></td>
                     <td><%=appointments.get(i).getServiceStatus()%></td>
 

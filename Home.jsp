@@ -52,15 +52,15 @@
                       <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <span  id="selected">
-                          ${city}
+                          ${cityName}
                           </span>
                         </button>
                         <br/>
                         <br/>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="SetCity?city=CHI" value="CHI">Chicago</a>
-                          <a class="dropdown-item" href="SetCity?city=NYC" value="NYC">New York</a>
-                          <a class="dropdown-item" href="SetCity?city=LA" value="LA">Los Angeles</a>
+                          <a class="dropdown-item" href="SetCity?city=CHI&cityName=Chicago" value="CHI">Chicago</a>
+                          <a class="dropdown-item" href="SetCity?city=NYC&cityName=New York" value="NYC">New York</a>
+                          <a class="dropdown-item" href="SetCity?city=LA&cityName=Los Angeles" value="LA">Los Angeles</a>
                           
                         </div>
                       </div>
@@ -251,9 +251,9 @@
                               Select City
                               </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="SetCity?city=CHI" value="CHI">Chicago</a>
-                              <a class="dropdown-item" href="SetCity?city=NYC" value="NYC">New York</a>
-                              <a class="dropdown-item" href="SetCity?city=LA" value="LA">Los Angeles</a>
+                              <a class="dropdown-item" href="SetCity?city=CHI&cityName=Chicago" value="CHI">Chicago</a>
+                              <a class="dropdown-item" href="SetCity?city=NYC&cityName=New York" value="NYC">New York</a>
+                              <a class="dropdown-item" href="SetCity?city=LA&cityName=Los Angeles" value="LA">Los Angeles</a>
                             </div>
                           </div>
                         </div>

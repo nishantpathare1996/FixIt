@@ -8,6 +8,7 @@ import java.io.*;
 import pojo.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import global.*;
 
 public class MySqlDataStoreUtilities {
     static Connection conn = null;
@@ -114,6 +115,51 @@ public class MySqlDataStoreUtilities {
         }
 
         return professionals;
+    }
+
+    public static void loadAllProfessionals() throws Exception {
+        try {
+            getConnection();
+            String query = "select * from  professional";
+            PreparedStatement pst = conn.prepareStatement(query);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Professional professional = new Professional(rs.getString("id"), rs.getString("firstName"), rs.getString("middleName"), rs.getString("lastName"), rs.getString("city"), rs.getString("email"), rs.getString("category"), rs.getString("phone"), rs.getString("street"), rs.getString("zip"), rs.getDouble("latitude"), rs.getDouble("longitude"), rs.getString("image"));
+                ProfessionalsHashMap.hm.put(rs.getString("id"),professional);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void loadAllServices() throws Exception {
+        try {
+            getConnection();
+            String query = "select * from  service;";
+            PreparedStatement pst = conn.prepareStatement(query);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Service service = new Service(rs.getString("serviceId"), rs.getString("serviceName"), rs.getString("category"), rs.getDouble("serviceCost"),rs.getDouble("discount"));
+                ServicesHashMap.hm.put(rs.getString("serviceId"),service);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void loadAllCustomers() throws Exception {
+        try {
+            getConnection();
+            String query = "select * from user where userType='customer';";
+            PreparedStatement pst = conn.prepareStatement(query);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                User user = new User(rs.getString("userId"), rs.getString("firstName"), rs.getString("lastName"), rs.getString("email"), rs.getString("phone"));
+                CustomersHashMap.hm.put(rs.getString("userId"),user);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     public static void scheduleAppointment(Appointment appointment) throws SQLException {
@@ -300,4 +346,6 @@ public class MySqlDataStoreUtilities {
             System.out.println(e);
         }
     }
+
+
 }

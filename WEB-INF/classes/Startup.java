@@ -17,7 +17,20 @@ public class Startup extends HttpServlet
 		// utility.logout();
         new Cities();
 		// SaxParserDataStore.addHashmap();
-        
-        // MySqlDataStoreUtilities.Insertproducts();
+        try{
+            MySqlDataStoreUtilities.loadAllProfessionals();
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        try{
+            MySqlDataStoreUtilities.loadAllServices();
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        try{
+            MySqlDataStoreUtilities.loadAllCustomers();
+        }catch(Exception e){
+            System.out.println(e);
+        }
     }
 }

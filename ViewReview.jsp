@@ -52,6 +52,9 @@
   <%@ page import="pojo.Review" %>
   <%@ page import="java.util.HashMap" %>
   <%@ page import="java.util.ArrayList" %>
+  <%@ page import="global.*"%>
+  <%@ page import="pojo.User"%>
+  <%@ page import="pojo.Professional"%>
 
 
 
@@ -75,9 +78,13 @@
         
         <section id="team" class="team">
           <div>
-            <h4>Customer reviews for <%=request.getParameter("name")%></h4>
+            <%HashMap<String,Professional> prohm = ProfessionalsHashMap.hm;
+                      Professional prf = prohm.get(request.getParameter("name"));
+                      String prfname = prf.getFirstName()+" "+prf.getLastName();%>
+            <h4>Customer reviews for <%=prfname%></h4>
             <% String profId=request.getParameter("name");
-            HashMap<String,ArrayList<Review>> allReviews= (HashMap)request.getAttribute("reviews"); 
+            HashMap<String,ArrayList<Review>> allReviews= (HashMap)request.getAttribute("reviews");
+              
               ArrayList<Review> reviews= (ArrayList)allReviews.get(profId);
               System.out.println("printing this"+reviews);
               %>
@@ -95,7 +102,11 @@
                 for(int i=0;i<reviews.size();i++){ %>
                 <tr>
                   <th scope="row"><%=i+1%></th>
-                  <td width="150px"><%=reviews.get(i).getUserId()%></td>
+                  <%HashMap<String,User> custhm = CustomersHashMap.hm;%>
+                    
+                  <% User cust = custhm.get(reviews.get(i).getUserId()); %>
+                  <% String custName = cust.getFirstName()+" "+cust.getLastName(); %>
+                  <td width="150px"><%=custName%></td>
                   <td width="70px"><%=reviews.get(i).getReviewRating()%>/5</td>
                   <td><%=reviews.get(i).getReviewText()%></td>
                 </tr>
