@@ -210,6 +210,7 @@ public class MySqlDataStoreUtilities {
         } catch (Exception e) {
             throw e;
         }
+        System.out.println(count);
         return count;
     }
 

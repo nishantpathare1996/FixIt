@@ -89,43 +89,44 @@
               <div class="col">
                 <div class="icon-box">
                   <i class="ri-store-line"></i>
-                  <h3><a data-toggle="modal" data-target="#electriciansModal">Electricians</a></h3>
+                  <!-- <h3><a data-toggle="modal" data-target="#electriciansModal">Electricians</a></h3> -->
+                  <h3><a href="AvailableProfessionals?category=Electrician">Electricians</a></h3>
                 </div>
               </div>
               <div class="col ">
                 <div class="icon-box">
                   <i class="ri-bar-chart-box-line"></i>
-                  <h3><a data-toggle="modal" data-target="#plumbersModal">Plumbers</a></h3>
+                  <h3><a href="AvailableProfessionals?category=Plumber">Plumbers</a></h3>
                 </div>
               </div>
               <div class="col ">
                 <div class="icon-box">
                   <i class="ri-calendar-todo-line"></i>
-                  <h3><a  data-toggle="modal" data-target="#paintersModal">Painters</a></h3>
+                  <h3><a href="AvailableProfessionals?category=Painter">Painters</a></h3>
                 </div>
               </div>
               <div class="col ">
                 <div class="icon-box">
                   <i class="ri-paint-brush-line"></i>
-                  <h3><a  data-toggle="modal" data-target="#pestModal">Pest Control</a></h3>
+                  <h3><a href="AvailableProfessionals?category=PestControl">Pest Control</a></h3>
                 </div>
               </div>
               <div class="col ">
                 <div class="icon-box">
                   <i class="ri-database-2-line"></i>
-                  <h3><a  data-toggle="modal" data-target="#carpentersModal">Carpenters</a></h3>
+                  <h3><a href="AvailableProfessionals?category=Carpenter">Carpenters</a></h3>
                 </div>
               </div>
               <div class="col ">
                 <div class="icon-box">
                   <i class="ri-database-2-line"></i>
-                  <h3><a  data-toggle="modal" data-target="#appliancesModal">Appliances</a></h3>
+                  <h3><a href="AvailableProfessionals?category=Appliance">Appliances</a></h3>
                 </div>
               </div>
               <div class="col ">
                 <div class="icon-box">
                   <i class="ri-database-2-line"></i>
-                  <h3><a  data-toggle="modal" data-target="#cleaningModal">Cleaning</a></h3>
+                  <h3><a href="AvailableProfessionals?category=Cleaning">Cleaning</a></h3>
                 </div>
               </div>
             </div>

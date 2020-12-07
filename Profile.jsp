@@ -135,6 +135,62 @@
               </table>
           </div>
           <br/>
+          <div >
+            <h3>Recommended Professionls</h3>
+            <div class="row" style="margin-top:70px;">          
+                <div class="col-4 d-flex mt-2" data-aos="zoom-in" data-aos-delay="300">
+                  <div class="icon-box" style="width: 300px;">
+                    <div style="margin-top:-60px;margin-bottom: 10px;"><img src="assets/img/team/team-1.jpg" class="img-thumbnail"></div>
+                    <h4><a href="Payment.jsp?e2">James Blunt</a></h4>
+                     <a href=GetReviews?name=e2>View Reviews</a>
+                    <p>NYC</p>
+                    <form action="Payment.jsp">
+                        <input type='hidden' name='professionalId' value='e2'>
+                        <input type='hidden' name='serviceDate' value='2020-12-10'>
+                        <input type='hidden' name='serviceTime' value='12:24'>
+                        <input type='hidden' name='providerName' value='James Blunt'>
+                        <input type='hidden' name='category' value='Electrician'>
+                        
+                        <button type="submit" class="btn btn-secondary">Select</button>
+                    </form>
+                  </div>
+                </div>
+                <div class="col-4 d-flex mt-2" data-aos="zoom-in" data-aos-delay="300">
+                  <div class="icon-box" style="width: 300px;">
+                    <div style="margin-top:-60px;margin-bottom: 10px;"><img src="assets/img/team/team-1.jpg" class="img-thumbnail"></div>
+                    <h4><a href="Payment.jsp?e3">Chester Bennington</a></h4>
+                     <a href=GetReviews?name=e3>View Reviews</a>
+                    <p>NYC</p>
+                    <form action="Payment.jsp">
+                        <input type='hidden' name='professionalId' value='e3'>
+                        <input type='hidden' name='serviceDate' value='2020-12-10'>
+                        <input type='hidden' name='serviceTime' value='12:24'>
+                        <input type='hidden' name='providerName' value='Chester Bennington'>
+                        <input type='hidden' name='category' value='Electrician'>
+                        
+                        <button type="submit" class="btn btn-secondary">Select</button>
+                    </form>
+                  </div>
+                </div>
+                 <div class="col-4 d-flex mt-2" data-aos="zoom-in" data-aos-delay="300">
+                  <div class="icon-box" style="width: 300px;">
+                    <div style="margin-top:-60px;margin-bottom: 10px;"><img src="assets/img/team/team-1.jpg" class="img-thumbnail"></div>
+                    <h4><a href="Payment.jsp?e5">Katy Perry</a></h4>
+                     <a href=GetReviews?name=e5>View Reviews</a>
+                    <p>NYC</p>
+                    <form action="Payment.jsp">
+                        <input type='hidden' name='professionalId' value='e5'>
+                        <input type='hidden' name='serviceDate' value='2020-12-10'>
+                        <input type='hidden' name='serviceTime' value='12:24'>
+                        <input type='hidden' name='providerName' value='Katy Perry'>
+                        <input type='hidden' name='category' value='Electrician'>
+                        
+                        <button type="submit" class="btn btn-secondary">Select</button>
+                    </form>
+                  </div>
+                </div>
+            </div>
+            </div>
          
         </section>
         </div>
